@@ -18,14 +18,24 @@ namespace ExtrasensoryGame
 		{
 			if (Player.CurrentClient == null)
 				return;
-			Debug.Log (Player.CurrentClient.EyeStatus);
-			if (Player.CurrentClient.EyeStatus == EyeStatus.None) {
+			switch (Player.CurrentClient.EyeStatus) 
+			{
+			case EyeStatus.None:
 				Player.MagicPower -= 20;
-				Player.CurrentClient.EyeStatus++;
-			} else if (Player.CurrentClient.EyeStatus != EyeStatus.WithGhost &&
-			        Player.CurrentClient.EyeStatus != EyeStatus.Characteristic3) {
+				if (Player.CurrentClient.IsHavingSpirit)
+					Player.CurrentClient.EyeStatus = EyeStatus.WithGhost;
+				else
+					Player.CurrentClient.EyeStatus = EyeStatus.WithoutGhost;
+				break;
+			case EyeStatus.WithoutGhost:
+			case EyeStatus.Characteristic1:
+			case EyeStatus.Characteristic2:
 				Player.MagicPower -= 10;
 				Player.CurrentClient.EyeStatus++;
+				break;
+			default:
+				break;
+				
 			}
 		}
 		// Update is called once per frame
