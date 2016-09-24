@@ -6,17 +6,46 @@
 
     public class SpiritData
     {
-        private SpiritDialog[] _avaliableDialogs;
-        private int? nextDialog = 0;
+        private float _rage = 0;
 
-        public SpiritData(SpiritDialog[] avaliableDialogs, IDictionary<int, float> goodsInfluence)
+        private SpiritDialog[] _avaliableDialogs;
+        private int _nextDialogIndex = 0;
+
+        private IDictionary<int, float> _itemsInfluence;
+
+        public SpiritData(SpiritDialog[] avaliableDialogs, IDictionary<int, float> itemsInfluence)
         {
             this._avaliableDialogs = avaliableDialogs;
+            this._itemsInfluence = itemsInfluence;
+        }
+
+        public bool HasNextDialog()
+        {
+            return this._nextDialogIndex < this._avaliableDialogs.Length;
         }
 
         public SpiritDialog GetNextDialog()
         {
-            return nextDialog.HasValue ? _avaliableDialogs[nextDialog.Value] : null;
+            var currentDialog = HasNextDialog()
+                 ? this._avaliableDialogs[this._nextDialogIndex++]
+                 : null;
+
+            return currentDialog;
+        }
+
+        public float ApplyItem(int itemId)
+        {
+            this._rage += _itemsInfluence.ContainsKey(itemId) ? _itemsInfluence[itemId] : 0;
+            return _rage;
+        }
+
+        public SpiritState GetState()
+        {
+            return _rage < -100 
+                    ? SpiritState.CatchedPeaceful
+                    : (_rage > 100 
+                         ? SpiritState.CatchedAgressive 
+                         : SpiritState.Neutral);
         }
     }
 }
