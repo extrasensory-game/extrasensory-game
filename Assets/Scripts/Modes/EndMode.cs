@@ -1,21 +1,27 @@
 ﻿using System;
-using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class EndMode : IMode
 {
+    private readonly GameObject restartCanvas;
+
+    public EndMode(GameObject restartCanvas)
+    {
+        this.restartCanvas = restartCanvas;
+    }
+    
     public void Init()
     {
-        SceneManager.LoadScene("Intro");
+        GameObject.Instantiate(this.restartCanvas);
     }
 
     public void Update()
     {
-        throw new NotImplementedException();
     }
 
     public bool IsFinished()
     {
-        throw new NotImplementedException();
+        return false;
     }
 
     public void Deinit()

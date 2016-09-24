@@ -4,6 +4,9 @@ public class ModeManager : MonoBehaviour
 {
     private IMode _mode;
 
+    [SerializeField]
+    private GameObject _uiManager;
+
     void Start()
     {
         this.SetMode(this.GetStartMode());
@@ -33,6 +36,6 @@ public class ModeManager : MonoBehaviour
 
     private IMode GetNextMode(IMode mode)
     {
-        return new EndMode();
+        return new EndMode(_uiManager.GetComponent<UIManager>().RestartCanvas);
     }
 }
