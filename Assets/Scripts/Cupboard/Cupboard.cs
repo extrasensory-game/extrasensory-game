@@ -1,5 +1,6 @@
 ﻿using ExtrasensoryGame.Data;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace ExtrasensoryGame.Cupboard
 {
@@ -16,15 +17,17 @@ namespace ExtrasensoryGame.Cupboard
         private void Start()
         {
             _items = _resourceManager.GetItems();
-            Debug.Log(_items.Length);
         }
 
         public void OnMouseUpAsButton()
         {
-            _cupboardPanel.ShowPanel(_items, data =>
+            if(!EventSystem.current.IsPointerOverGameObject())
             {
-                Debug.Log(string.Format("{0}, {1}", data.Name, data.Id));
-            });
+                _cupboardPanel.ShowPanel(_items, data =>
+                {
+                    Debug.Log(string.Format("{0}, {1}", data.Name, data.Id));
+                });
+            }
         }
     }
 }

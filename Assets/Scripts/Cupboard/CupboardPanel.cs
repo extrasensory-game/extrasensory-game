@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using ExtrasensoryGame.Data;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace ExtrasensoryGame.Cupboard
         private Action<ItemData> _callback = delegate{};
 
         private CupboardUIItem[] _cupboardUiItems;
+        private Queue<CupboardUIItem> _queue = new Queue<CupboardUIItem>();
 
         public void ShowPanel(ItemData[] items, Action<ItemData> callback)
         {
@@ -22,10 +24,12 @@ namespace ExtrasensoryGame.Cupboard
 
             for (int i = 0; i < _cupboardUiItems.Length; i++)
             {
-                _cupboardUiItems[i] = Instantiate(_prefab);
+                _cupboardUiItems[i] = _queue.Count > 0 ? _queue.Dequeue() : Instantiate(_prefab);
+                _cupboardUiItems[i].gameObject.SetActive(true);
+
                 _cupboardUiItems[i].Init(_items[i], ItemClickhandler);
-                var t = _cupboardUiItems[i].GetComponent<RectTransform>();
-                t.SetParent(_container);
+                var rectTransform = _cupboardUiItems[i].GetComponent<RectTransform>();
+                rectTransform.SetParent(_container);
             }
 
             _callback = callback;
@@ -34,14 +38,19 @@ namespace ExtrasensoryGame.Cupboard
 
         public void ClosePanel()
         {
+            foreach (CupboardUIItem t in _cupboardUiItems)
+            {
+                t.gameObject.SetActive(true);
+                _queue.Enqueue(t);
+            }
+            _cupboardUiItems = null;
+
             gameObject.SetActive(false);
         }
 
         private void ItemClickhandler(ItemData item)
         {
             _callback(item);
-            foreach (CupboardUIItem t in _cupboardUiItems)
-                Destroy(t.gameObject);
             ClosePanel();
         }
     }
