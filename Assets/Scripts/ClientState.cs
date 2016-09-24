@@ -6,17 +6,5 @@ namespace ExtrasensoryGame
 
 		public int confidience = 0;
 		public EyeStatus EyeStatus;
-		// Use this for initialization
-		void Start () 
-		{
-		
-		}
-		
-		// Update is called once per frame
-		void Update () 
-		{
-		
-		}
-
 	}
 }

@@ -5,7 +5,6 @@ namespace ExtrasensoryGame
 	public class Game : MonoBehaviour 
 	{
 		public GameObject Client;
-		public SpriteRenderer PlayerSprite;
 		public ClientGenerator clientGenerator;
 		Client clientInstance;
 		// Use this for initialization
