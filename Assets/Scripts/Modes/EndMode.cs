@@ -2,18 +2,21 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using ExtrasensoryGame;
 
 public class EndMode : IMode
 {
-    private readonly GameObject restartPanel;
+	private readonly GameObject restartPanel;
+	private Game _game;
 
     public EndMode(GameObject restartPanel)
     {
         this.restartPanel = restartPanel;
     }
     
-    public void Init()
-    {
+	public void Init(Game game)
+	{
+		_game = game;
         this.restartPanel.SetActive(true);
         this.restartPanel.GetComponentInChildren<Button>().onClick.AddListener(Restart);
     }

@@ -6,9 +6,13 @@ public class ModeManager : MonoBehaviour
 {
     private IMode _mode;
     public ClientGenerator ClientGenerator;
-    public ResourceManager ResourceManager;
-    [SerializeField]
-    private GameObject _uiManager;
+	public ResourceManager ResourceManager;
+	[SerializeField]
+	private GameObject _uiManager;
+	[SerializeField]
+	private Game _game;
+
+
 
     void Start()
     {
@@ -29,7 +33,7 @@ public class ModeManager : MonoBehaviour
         if (_mode != null)
             _mode.Deinit();
         _mode = mode;
-        _mode.Init();
+		_mode.Init(_game);
     }
 
     private IMode GetStartMode()

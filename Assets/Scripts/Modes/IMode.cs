@@ -1,6 +1,8 @@
-﻿public interface IMode
+﻿using ExtrasensoryGame;
+
+public interface IMode
 {
-    void Init();
+    void Init(Game game);
     void Update();
     bool IsFinished();
     void Deinit();

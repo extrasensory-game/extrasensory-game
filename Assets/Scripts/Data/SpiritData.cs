@@ -17,17 +17,17 @@ namespace ExtrasensoryGame.Data
         private string _name;
         private bool _isPremium;
 
-        private SpiritPhrase[] _avaliableDialogs;
+        private List<SpiritPhrase> _avaliablePhrases;
         private int _nextDialogIndex = 0;
 
         private int[] _pleasantItemIds;
 
         public GameObject Prefab;
 
-        public SpiritData(int id, SpiritPhrase[] avaliableDialogs, bool isPremium, string name, int[] pleasantItemIds)
+        public SpiritData(int id, SpiritPhrase[] phrases, bool isPremium, string name, int[] pleasantItemIds)
         {
             _id = id;
-            _avaliableDialogs = avaliableDialogs;
+            _avaliablePhrases = new List<SpiritPhrase>(phrases);
             _name = name;
             _isPremium = isPremium;
             _pleasantItemIds = pleasantItemIds;
@@ -35,21 +35,25 @@ namespace ExtrasensoryGame.Data
 
         public bool HasNextDialog()
         {
-            return this._nextDialogIndex < this._avaliableDialogs.Length;
+            return this._nextDialogIndex < this._avaliablePhrases.Count;
         }
 
-        public SpiritPhrase GetNextDialog()
+        public SpiritPhrase[] GetSpiritPhrases()
         {
-            var currentDialog = HasNextDialog()
-                 ? this._avaliableDialogs[this._nextDialogIndex++]
-                 : null;
-
-            return currentDialog;
+            return this._avaliablePhrases.ToArray();
         }
 
-        public float ApplyItem(int itemId, float itemRageValue)
+        public void SelectPhrase(SpiritPhrase phrase)
         {
-            this._rage += _pleasantItemIds.Any(ii => ii == itemId) ? itemRageValue : -itemRageValue;
+            this._rage += phrase.Points;
+            this._avaliablePhrases.Remove(phrase);
+        }
+
+        public float ApplyItem(ItemData itemData)
+        {
+            this._rage += _pleasantItemIds.Any(ii => ii == itemData.Id) 
+                ? itemData.RageAbsoluteModifier 
+                : -itemData.RageAbsoluteModifier;
             return _rage;
         }
 

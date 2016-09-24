@@ -11,7 +11,8 @@ public class SpiritMode : IMode
     private Client client;
     private SpiritData spiritData;
     private GameObject clientObject;
-    private readonly GameObject clientPanel;
+	private readonly GameObject clientPanel;
+	private Game _game;
 
     public SpiritMode(Client client, SpiritData spiritData, GameObject clientPanel)
     {
@@ -20,8 +21,9 @@ public class SpiritMode : IMode
         this.clientPanel = clientPanel;
     }
 
-    public void Init()
-    {
+	public void Init(Game game)
+	{
+		_game = game;
         this.clientObject = new GameObject();
 
         foreach (var sprite in client.CharacterSprites)
