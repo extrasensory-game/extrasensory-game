@@ -31,7 +31,7 @@ public class ModeManager : MonoBehaviour
 
     private IMode GetStartMode()
     {
-        return new GhostMode();
+        return new SpiritMode();
     }
 
     private IMode GetNextMode(IMode mode)

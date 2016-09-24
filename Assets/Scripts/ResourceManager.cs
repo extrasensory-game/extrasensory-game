@@ -10,10 +10,22 @@ namespace ExtrasensoryGame
         private SpiritPhrase[] _spiritPhrases;
         private SpiritData[] _spirits;
 
+        private ClientGenerator _clientGenerator = new ClientGenerator();
+
+        private void Start()
+        {
+            Init();
+        }
+
         public void Init()
         {
             LoadSpiritPhrases();
             LoadSpirits();
+        }
+
+        public Client GetNextClient()
+        {
+            return _clientGenerator.GetClient();
         }
 
         private void LoadSpirits()

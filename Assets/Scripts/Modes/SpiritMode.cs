@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class GhostMode : IMode
+﻿public class SpiritMode : IMode
 {
     public void Init()
     {
