@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace ExtrasensoryGame.Data.SpiritDialog
+namespace ExtrasensoryGame.Data.SpiritDialogs
 {
-    public class SpiritPhrase : MonoBehaviour
+    public class SpiritPhrase
     {
         private string _speach;
         private string _replay;
