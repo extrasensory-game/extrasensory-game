@@ -7,11 +7,12 @@ namespace ExtrasensoryGame
 {
     public class ResourceManager : MonoBehaviour
     {
-        
         private SpiritPhrase[] _spiritPhrases;
         private SpiritData[] _spirits;
+        private ItemData[] _items;
+
         [SerializeField]
-        public GameObject[] _spiritPrefabs;
+        private GameObject[] _spiritPrefabs;
 
         private ClientGenerator _clientGenerator = new ClientGenerator();
 
@@ -24,6 +25,12 @@ namespace ExtrasensoryGame
         {
             LoadSpiritPhrases();
             LoadSpirits();
+            LoadItems();
+        }
+
+        private void LoadItems()
+        {
+            _items = DataParser.LoadItems();
         }
 
         public Client GetNextClient()
