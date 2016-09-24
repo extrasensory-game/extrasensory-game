@@ -1,18 +1,21 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EndMode : IMode
 {
-    private readonly GameObject restartCanvas;
+    private readonly GameObject restartCanvasPrefab;
 
-    public EndMode(GameObject restartCanvas)
+    public EndMode(GameObject restartCanvasPrefab)
     {
-        this.restartCanvas = restartCanvas;
+        this.restartCanvasPrefab = restartCanvasPrefab;
     }
     
     public void Init()
     {
-        GameObject.Instantiate(this.restartCanvas);
+        var restartCanvas = GameObject.Instantiate(this.restartCanvasPrefab);
+        restartCanvas.GetComponentInChildren<Button>().onClick.AddListener(Restart);
     }
 
     public void Update()
@@ -27,5 +30,11 @@ public class EndMode : IMode
     public void Deinit()
     {
         throw new NotImplementedException();
+    }
+
+    private void Restart()
+    {
+        Debug.Log("restart");
+        SceneManager.LoadScene("Intro");
     }
 }
