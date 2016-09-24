@@ -8,6 +8,9 @@ namespace ExtrasensoryGame.Cupboard
         [SerializeField]
         private ResourceManager _resourceManager;
 
+        [SerializeField]
+        private CupboardPanel _cupboardPanel;
+
         private ItemData[] _items;
 
         private void Start()
@@ -18,8 +21,10 @@ namespace ExtrasensoryGame.Cupboard
 
         public void OnMouseUpAsButton()
         {
-            Debug.Log("Open cupboard");
-
+            _cupboardPanel.ShowPanel(_items, data =>
+            {
+                Debug.Log(string.Format("{0}, {1}", data.Name, data.Id));
+            });
         }
     }
 }

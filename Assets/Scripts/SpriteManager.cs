@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
-using ExtrasensoryGame;
+
 namespace ExtrasensoryGame
 {
 	public class SpriteManager : MonoBehaviour {
