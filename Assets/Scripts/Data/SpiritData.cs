@@ -47,7 +47,9 @@ namespace ExtrasensoryGame.Data
             return currentDialog;
         }
 
+        public float ApplyItem(int itemId, float itemRageValue)
         {
+            this._rage += _pleasantItemIds.Any(ii => ii == itemId) ? itemRageValue : -itemRageValue;
             return _rage;
         }
 
