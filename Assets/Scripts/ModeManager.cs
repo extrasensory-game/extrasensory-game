@@ -40,7 +40,8 @@ public class ModeManager : MonoBehaviour
     private IMode GetNextMode(IMode mode)
     {
         if (mode is WaitClientMode)
-            return new SpiritMode(ClientGenerator.GetClient(), ResourceManager.GetRandomSpirit());
+            return new SpiritMode(ClientGenerator.GetClient(), ResourceManager.GetRandomSpirit(),
+                _uiManager.GetComponent<UIManager>().ClientPanel);
         else if (mode is SpiritMode)
             return new EndMode(_uiManager.GetComponent<UIManager>().RestartPanel);
         throw new NotImplementedException();
