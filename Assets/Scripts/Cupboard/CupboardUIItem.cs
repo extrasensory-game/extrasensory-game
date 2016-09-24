@@ -7,6 +7,7 @@ namespace ExtrasensoryGame.Cupboard
 {
     public class CupboardUIItem : MonoBehaviour
     {
+        [SerializeField]
         private Text _itemName;
 
         private Action<ItemData> _clickHandler = delegate {};

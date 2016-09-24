@@ -2322,6 +2322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resourceManager: {fileID: 38817184}
+  _cupboardPanel: {fileID: 0}
 --- !u!1 &2033055628
 GameObject:
   m_ObjectHideFlags: 0

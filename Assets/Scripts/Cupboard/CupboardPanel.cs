@@ -6,8 +6,9 @@ namespace ExtrasensoryGame.Cupboard
 {
     public class CupboardPanel : MonoBehaviour
     {
-        [SerializeField]
-        private CupboardUIItem _prefab;
+        [SerializeField] private CupboardUIItem _prefab;
+
+        [SerializeField] private RectTransform _container;
 
         private ItemData[] _items;
         private Action<ItemData> _callback = delegate{};
@@ -23,6 +24,8 @@ namespace ExtrasensoryGame.Cupboard
             {
                 _cupboardUiItems[i] = Instantiate(_prefab);
                 _cupboardUiItems[i].Init(_items[i], ItemClickhandler);
+                var t = _cupboardUiItems[i].GetComponent<RectTransform>();
+                t.SetParent(_container);
             }
 
             _callback = callback;
@@ -37,6 +40,8 @@ namespace ExtrasensoryGame.Cupboard
         private void ItemClickhandler(ItemData item)
         {
             _callback(item);
+            foreach (CupboardUIItem t in _cupboardUiItems)
+                Destroy(t.gameObject);
             ClosePanel();
         }
     }
