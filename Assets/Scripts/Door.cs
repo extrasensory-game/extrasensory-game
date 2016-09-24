@@ -9,8 +9,8 @@ namespace ExtrasensoryGame
 
 		public void OnMouseUpAsButton()
 		{
-			DoorOpened ();
-
+			if(DoorOpened!=null)
+				DoorOpened ();
 		}
 	}
 }

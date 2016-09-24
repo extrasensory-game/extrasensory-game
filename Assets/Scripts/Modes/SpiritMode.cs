@@ -30,7 +30,8 @@ public class SpiritMode : IMode
         {
             InstantiateSprite(sprite);
         }
-        this.clientPanel.GetComponentInChildren<Button>().onClick.AddListener(ShowSpirit);
+
+		_game.Player.CurrentClient = this.client;
     }
 
     public void Update()
@@ -44,8 +45,8 @@ public class SpiritMode : IMode
     }
 
     public void Deinit()
-    {
-        this.clientPanel.GetComponentInChildren<Button>().onClick.RemoveListener(ShowSpirit);
+	{
+		_game.Player.CurrentClient = null;
         if (_spiritObject != null)
             GameObject.Destroy(_spiritObject);
     }
