@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class ModeManager : MonoBehaviour
 {
@@ -31,11 +32,15 @@ public class ModeManager : MonoBehaviour
 
     private IMode GetStartMode()
     {
-        return new SpiritMode();
+        return new WaitClientMode(_uiManager.GetComponent<UIManager>().NextClientPanel);
     }
 
     private IMode GetNextMode(IMode mode)
     {
-        return new EndMode(_uiManager.GetComponent<UIManager>().RestartCanvas);
+        if (mode is WaitClientMode)
+            return new SpiritMode();
+        else if (mode is SpiritMode)
+            return new EndMode(_uiManager.GetComponent<UIManager>().RestartPanel);
+        throw new NotImplementedException();
     }
 }
