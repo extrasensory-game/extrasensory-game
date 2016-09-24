@@ -8,43 +8,43 @@ namespace ExtrasensoryGame.Data
 {
     public static class DataParser
     {
-        private const string SpeachFile = "Speach.csv";
-        private const string ReplaysFile = "Replays.csv";
-        private const string SpiritPhrasesFile = "SpiritPhrases.csv";
-        private const string SpiritFile = "Spirit.csv";
-
+        private const string SpeachFile = "Speach";
+        private const string ReplaysFile = "Replays";
+        private const string SpiritPhrasesFile = "SpiritPhrases";
+        private const string SpiritFile = "Spirit";
 
         public static SpiritData[] LoadSpiritsData()
         {
-            return (SpiritData[]) LoadTexts(SpiritFile, () => new SpiritData());
+            return LoadTexts(SpiritFile, () => new SpiritData()).Select(d => (SpiritData)d).ToArray();
         }
 
         public static PhraseData[] LoadPhrases()
         {
-            return (PhraseData[]) LoadTexts(SpiritPhrasesFile, () => new PhraseData());
+            return LoadTexts(SpiritPhrasesFile, () => new PhraseData()).Select(d => (PhraseData)d).ToArray();
         }
 
         public static TextData[] LoadSpeachTexts()
         {
-            return (TextData[]) LoadTexts(SpeachFile, () => new TextData());
+            return LoadTexts(SpeachFile, () => new TextData()).Select(d => (TextData)d).ToArray();
         }
+
         public static TextData[] LoadReplayTexts()
         {
-            return (TextData[]) LoadTexts(ReplaysFile, () => new TextData());
+            return LoadTexts(ReplaysFile, () => new TextData()).Select(d => (TextData)d).ToArray();
         }
 
         private static LoadabelObject[] LoadTexts(string fileName, Func<LoadabelObject> getObjetInstance)
         {
-            var text = (TextAsset)Resources.Load(fileName, typeof(TextAsset));
+            var res = Resources.Load(fileName);
+            var text = (TextAsset)res;
             List<LoadabelObject> resultList = new List<LoadabelObject>();
-            StringReader reader = new StringReader(text.text);
-//            using(StringReader reader = new StringReader(text.text))
+            using(StringReader reader = new StringReader(text.text))
             {
                 string line = reader.ReadLine();
                 while(!string.IsNullOrEmpty(line))
                 {
                     var items = line.Split(';');
-                    if(items.Length > 1 && items[0] != "id")
+                    if(!string.IsNullOrEmpty(items[0]) &&  items.Length > 1 && items[0] != "id")
                     {
                         var @object = getObjetInstance();
                         @object.Init(items);
@@ -114,7 +114,8 @@ namespace ExtrasensoryGame.Data
                 {
                     Phrases[i] = int.Parse(split[i]);
                 }
-                IsPremium = bool.Parse(data[3]);
+
+                IsPremium = int.Parse(data[3]) != 0;
             }
         }
     }

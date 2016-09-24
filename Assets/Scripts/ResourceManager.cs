@@ -59,7 +59,7 @@ namespace ExtrasensoryGame
             for (int i = 0; i < phraseDatas.Length; i++)
             {
                 var speach = speachTexts.First(s => s.Id == phraseDatas[i].SpeachTextId);
-                var replay = replayTexts.First(s => s.Id == phraseDatas[i].SpeachTextId);
+                var replay = replayTexts.First(s => s.Id == phraseDatas[i].ReplayTextId);
                 _spiritPhrases[i] = new SpiritPhrase
                 {
                    Id =  phraseDatas[i].Id,
