@@ -595,8 +595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c3b9ad2aa2c5d409cbd7de4e4e084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Client: {fileID: 0}
-  PlayerSprite: {fileID: 1043195577}
+  Client: {fileID: 2033055628}
   clientGenerator: {fileID: 1488432478}
 --- !u!4 &1431457942
 Transform:
@@ -638,9 +637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b02b20110275a25478f0873e9ec250cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpriteManager: {fileID: 0}
-  TestClient: {fileID: 114000012958173456, guid: 17da3c21830747945865eb047685ac0e,
-    type: 2}
+  SpriteManager: {fileID: 1541251134}
 --- !u!4 &1488432479
 Transform:
   m_ObjectHideFlags: 0
@@ -662,6 +659,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1541251133}
+  - 114: {fileID: 1541251134}
   m_Layer: 0
   m_Name: SpriteManager
   m_TagString: Untagged
@@ -682,6 +680,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!114 &1541251134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1541251132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab802210b4291aa4ba16f762b94a3436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heatSprites:
+  - {fileID: 114000010897421890, guid: 0a1086f54f3d6974fb96e4a52adeb552, type: 2}
+  bodySprites: []
 --- !u!1 &1557944384
 GameObject:
   m_ObjectHideFlags: 0
