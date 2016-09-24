@@ -76,5 +76,13 @@ namespace ExtrasensoryGame
                 };
             }
         }
+
+        public ItemData[] GetItems()
+        {
+            if (_items == null)
+                LoadItems();
+
+            return _items;
+        }
     }
 }
