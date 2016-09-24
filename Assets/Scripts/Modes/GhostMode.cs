@@ -14,7 +14,6 @@ public class GhostMode : IMode
     public bool IsFinished()
     {
         ++_framesCount;
-        //Debug.Log(_framesCount);
         return _framesCount > 200;
     }
 

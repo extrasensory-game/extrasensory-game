@@ -33,6 +33,6 @@ public class ModeManager : MonoBehaviour
 
     private IMode GetNextMode(IMode mode)
     {
-        return new GhostMode();
+        return new EndMode();
     }
 }
