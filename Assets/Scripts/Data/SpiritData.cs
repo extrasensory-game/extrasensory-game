@@ -1,4 +1,4 @@
-﻿using System.Runtime.InteropServices;
+﻿using UnityEngine;
 
 namespace ExtrasensoryGame.Data
 {
@@ -20,6 +20,8 @@ namespace ExtrasensoryGame.Data
         private int[] _pleasantItemIds;
 
         private IDictionary<int, float> _itemsInfluence;
+
+        public GameObject Prefab;
 
         public SpiritData(int id, SpiritPhrase[] avaliableDialogs, bool isPremium, string name, int[] pleasantItemIds)
         {
