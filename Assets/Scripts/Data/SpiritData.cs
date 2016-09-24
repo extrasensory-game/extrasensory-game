@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+
+using UnityEngine;
 
 namespace ExtrasensoryGame.Data
 {
@@ -18,8 +21,6 @@ namespace ExtrasensoryGame.Data
         private int _nextDialogIndex = 0;
 
         private int[] _pleasantItemIds;
-
-        private IDictionary<int, float> _itemsInfluence;
 
         public GameObject Prefab;
 
@@ -46,9 +47,7 @@ namespace ExtrasensoryGame.Data
             return currentDialog;
         }
 
-        public float ApplyItem(int itemId)
         {
-            this._rage += _itemsInfluence.ContainsKey(itemId) ? _itemsInfluence[itemId] : 0;
             return _rage;
         }
 

@@ -25,7 +25,10 @@ namespace ExtrasensoryGame.Data
 
         public void ApplyItem(int itemId)
         {
-            var rageValue = this._spiritData.ApplyItem(itemId);
+            // TODO get real item rage value.
+            var itemRageValue = 10;
+
+            var rageValue = this._spiritData.ApplyItem(itemId, itemRageValue);
 
             // TODO Set rage on slider.
             if (StateChanged())
