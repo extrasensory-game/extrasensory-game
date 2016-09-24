@@ -352,6 +352,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c4087ed3af7e9f448ab31aedffb685b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ClientGenerator: {fileID: 0}
+  ResourceManager: {fileID: 0}
   _uiManager: {fileID: 758067514}
 --- !u!4 &343785804
 Transform:
