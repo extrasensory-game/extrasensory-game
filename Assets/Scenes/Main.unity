@@ -90,6 +90,46 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &48636727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 48636729}
+  - 114: {fileID: 48636728}
+  m_Layer: 0
+  m_Name: ResourceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &48636728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 48636727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf5e3e493931394d8e4a24d921d691e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &48636729
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 48636727}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
 --- !u!1 &343785802
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c4087ed3af7e9f448ab31aedffb685b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uiManager: {fileID: 758067514}
+  _uiManager: {fileID: 0}
 --- !u!4 &343785804
 Transform:
   m_ObjectHideFlags: 0
@@ -245,8 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f5b44fde969e84a9162482439b7fb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RestartCanvas: {fileID: 1000014289152422, guid: 0400b8f816e031d4a85f0d34bbc6f7ae,
-    type: 2}
+  RestartCanvas: {fileID: 55430304, guid: 0400b8f816e031d4a85f0d34bbc6f7ae, type: 2}
 --- !u!4 &758067516
 Transform:
   m_ObjectHideFlags: 0
@@ -638,6 +677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c3b9ad2aa2c5d409cbd7de4e4e084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MagicPowerBar: {fileID: 0}
   Client: {fileID: 2033055628}
   clientGenerator: {fileID: 1488432478}
 --- !u!4 &1431457942
