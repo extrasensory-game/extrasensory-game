@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 public class EndMode : IMode
 {
-    private readonly GameObject restartCanvasPrefab;
+    private readonly GameObject restartPanel;
 
-    public EndMode(GameObject restartCanvasPrefab)
+    public EndMode(GameObject restartPanel)
     {
-        this.restartCanvasPrefab = restartCanvasPrefab;
+        this.restartPanel = restartPanel;
     }
     
     public void Init()
     {
-        var restartCanvas = GameObject.Instantiate(this.restartCanvasPrefab);
-        restartCanvas.GetComponentInChildren<Button>().onClick.AddListener(Restart);
+        this.restartPanel.SetActive(true);
+        this.restartPanel.GetComponentInChildren<Button>().onClick.AddListener(Restart);
     }
 
     public void Update()

@@ -4,18 +4,17 @@ using UnityEngine.UI;
 public class WaitClientMode : IMode
 {
     private bool waiting = true;
-    private readonly GameObject nextClientCanvasPrefab;
-    private GameObject nextClientCanvas;
+    private readonly GameObject nextClientPanel;
 
-    public WaitClientMode(GameObject nextClientCanvasPrefab)
+    public WaitClientMode(GameObject nextClientPanel)
     {
-        this.nextClientCanvasPrefab = nextClientCanvasPrefab;
+        this.nextClientPanel = nextClientPanel;
     }
 
     public void Init()
     {
-        this.nextClientCanvas = GameObject.Instantiate(this.nextClientCanvasPrefab);
-        nextClientCanvas.GetComponentInChildren<Button>().onClick.AddListener(CallNextClient);
+        this.nextClientPanel.SetActive(true);
+        this.nextClientPanel.GetComponentInChildren<Button>().onClick.AddListener(CallNextClient);
     }
 
     public void Update()
@@ -29,7 +28,8 @@ public class WaitClientMode : IMode
 
     public void Deinit()
     {
-        GameObject.Destroy(this.nextClientCanvas);
+        this.nextClientPanel.SetActive(false);
+        this.nextClientPanel.GetComponentInChildren<Button>().onClick.RemoveListener(CallNextClient);
     }
 
     private void CallNextClient()

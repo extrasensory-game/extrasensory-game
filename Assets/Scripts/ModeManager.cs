@@ -32,7 +32,7 @@ public class ModeManager : MonoBehaviour
 
     private IMode GetStartMode()
     {
-        return new WaitClientMode(_uiManager.GetComponent<UIManager>().NextClientCanvas);
+        return new WaitClientMode(_uiManager.GetComponent<UIManager>().NextClientPanel);
     }
 
     private IMode GetNextMode(IMode mode)
@@ -40,7 +40,7 @@ public class ModeManager : MonoBehaviour
         if (mode is WaitClientMode)
             return new SpiritMode();
         else if (mode is SpiritMode)
-            return new EndMode(_uiManager.GetComponent<UIManager>().RestartCanvas);
+            return new EndMode(_uiManager.GetComponent<UIManager>().RestartPanel);
         throw new NotImplementedException();
     }
 }
