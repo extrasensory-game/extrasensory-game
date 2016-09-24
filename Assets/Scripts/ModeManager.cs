@@ -8,7 +8,7 @@ public class ModeManager : MonoBehaviour
     public ClientGenerator ClientGenerator;
 	public ResourceManager ResourceManager;
 	[SerializeField]
-	private GameObject _uiManager;
+	private UIManager _uiManager;
 	[SerializeField]
 	private Game _game;
 
@@ -38,16 +38,16 @@ public class ModeManager : MonoBehaviour
 
     private IMode GetStartMode()
     {
-        return new WaitClientMode(_uiManager.GetComponent<UIManager>().NextClientPanel);
+        return new WaitClientMode(_uiManager.NextClientPanel);
     }
 
     private IMode GetNextMode(IMode mode)
     {
         if (mode is WaitClientMode)
             return new SpiritMode(ClientGenerator.GetClient(), ResourceManager.GetRandomSpirit(),
-                _uiManager.GetComponent<UIManager>().ClientPanel);
+                _uiManager.ClientPanel);
         else if (mode is SpiritMode)
-            return new EndMode(_uiManager.GetComponent<UIManager>().RestartPanel);
+			return new WaitClientMode(_uiManager.NextClientPanel);
         throw new NotImplementedException();
     }
 }

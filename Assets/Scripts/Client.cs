@@ -8,10 +8,10 @@ namespace ExtrasensoryGame
 	public class Client {
 
 		public List<SpriteInstance> CharacterSprites = new List<SpriteInstance>();
-		public List<SpriteInstance> SpiritSprites = new List<SpriteInstance>();
-		public ClientState ClientState = new ClientState();
 		public SpiritData SpiritData;
 
+		public int confidience = 0;
+		public EyeStatus EyeStatus;
 		public bool IsHavingSpirit { get; set; }
 
 	}
