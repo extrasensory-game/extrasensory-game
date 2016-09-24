@@ -12,6 +12,10 @@ public class ModeManager : MonoBehaviour
     void Update()
     {
         _mode.Update();
+        if (_mode.IsFinished())
+        {
+            this.SetMode(this.GetNextMode(_mode));
+        }
     }
 
     private void SetMode(IMode mode)
@@ -23,6 +27,11 @@ public class ModeManager : MonoBehaviour
     }
 
     private IMode GetStartMode()
+    {
+        return new GhostMode();
+    }
+
+    private IMode GetNextMode(IMode mode)
     {
         return new GhostMode();
     }
