@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
 
 namespace ExtrasensoryGame.Data.SpiritDialogs
 {
     public class SpiritPhrase
     {
-        private string _speach;
-        private string _replay;
-        private float _points;
+        public int Id;
+        public string Speach;
+        public string Replay;
+        public float Points;
     }
 }
