@@ -3,4 +3,5 @@
 public class UIManager : MonoBehaviour
 {
     public GameObject RestartCanvas;
+    public GameObject NextClientCanvas;
 }

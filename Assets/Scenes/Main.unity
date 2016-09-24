@@ -247,6 +247,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RestartCanvas: {fileID: 1000014289152422, guid: 0400b8f816e031d4a85f0d34bbc6f7ae,
     type: 2}
+  NextClientCanvas: {fileID: 1000011558772656, guid: d66bfcc16bec6c641a6181454442ea60,
+    type: 2}
 --- !u!4 &758067516
 Transform:
   m_ObjectHideFlags: 0
@@ -638,6 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c3b9ad2aa2c5d409cbd7de4e4e084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MagicPowerBar: {fileID: 0}
   Client: {fileID: 2033055628}
   clientGenerator: {fileID: 1488432478}
 --- !u!4 &1431457942
