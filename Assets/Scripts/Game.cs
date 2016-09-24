@@ -9,13 +9,14 @@ namespace ExtrasensoryGame
 		public GameObject Client;
 		public ClientGenerator clientGenerator;
 		Client clientInstance;
-		// Use this for initialization
-		void Start () {
-			InitNewClient ();
-		}
-			
-		
-		private void InstantiateSprite(SpriteInstance spriteInstance)
+
+	    private void Start()
+	    {
+	        InitNewClient();
+	    }
+
+
+	    private void InstantiateSprite(SpriteInstance spriteInstance)
 		{
 			var go = (SpriteInstance)GameObject.Instantiate (spriteInstance, new Vector3 (0, 0, spriteInstance.Layer), Quaternion.identity);
 			go.transform.parent = Client.transform;
