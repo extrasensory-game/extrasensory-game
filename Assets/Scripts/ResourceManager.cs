@@ -7,8 +7,11 @@ namespace ExtrasensoryGame
 {
     public class ResourceManager : MonoBehaviour
     {
+        
         private SpiritPhrase[] _spiritPhrases;
         private SpiritData[] _spirits;
+        [SerializeField]
+        public GameObject[] _spiritPrefabs;
 
         private ClientGenerator _clientGenerator = new ClientGenerator();
 
@@ -28,6 +31,11 @@ namespace ExtrasensoryGame
             return _clientGenerator.GetClient();
         }
 
+        public SpiritData GetRandomSpirit()
+        {
+            return _spirits[Random.Range(0, _spirits.Length)];
+        }
+
         private void LoadSpirits()
         {
             var spirits = DataParser.LoadSpiritsData();
@@ -37,6 +45,7 @@ namespace ExtrasensoryGame
             {
                 var phrases = _spiritPhrases.Where(p => spirits[i].Phrases.Contains(p.Id)).ToArray();
                 _spirits[i] = new SpiritData(spirits[i].Id, phrases, spirits[i].IsPremium, spirits[i].Name);
+                _spirits[i].Prefab = _spiritPrefabs[i];
             }
         }
 

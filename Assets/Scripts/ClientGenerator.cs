@@ -8,19 +8,11 @@ namespace ExtrasensoryGame
 	public class ClientGenerator : MonoBehaviour {
 
 		public SpriteManager SpriteManager;
-		// Use this for initialization
-		void Start () {
-		
-		}
-
-		// Update is called once per frame
-		void Update () {
-		
-		}
 
 		public Client GetClient()
 		{
 			var client = new Client ();
+            
 			var a = SpriteManager.GetRandomHeat ();
 			if(a!=null)
 				client.CharacterSprites.Add (a);
