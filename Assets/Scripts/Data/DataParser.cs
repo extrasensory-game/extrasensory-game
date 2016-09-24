@@ -37,7 +37,8 @@ namespace ExtrasensoryGame.Data
         {
             var text = (TextAsset)Resources.Load(fileName, typeof(TextAsset));
             List<LoadabelObject> resultList = new List<LoadabelObject>();
-            using(StringReader reader = new StringReader(text.text))
+            StringReader reader = new StringReader(text.text);
+//            using(StringReader reader = new StringReader(text.text))
             {
                 string line = reader.ReadLine();
                 while(!string.IsNullOrEmpty(line))
@@ -106,7 +107,13 @@ namespace ExtrasensoryGame.Data
             {
                 Id = int.Parse(data[0]);
                 Name = data[1];
-                Phrases = data[2].Split(',').Select(int.Parse).ToArray();
+
+                var split = data[2].Split(',');
+                Phrases = new int[split.Length];
+                for (int i = 0; i < split.Length; i++)
+                {
+                    Phrases[i] = int.Parse(split[i]);
+                }
                 IsPremium = bool.Parse(data[3]);
             }
         }
