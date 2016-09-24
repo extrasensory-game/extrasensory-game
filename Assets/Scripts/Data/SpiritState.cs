@@ -1,3 +1,4 @@
+﻿namespace ExtrasensoryGame.Data
 {
     public enum SpiritState
     {
