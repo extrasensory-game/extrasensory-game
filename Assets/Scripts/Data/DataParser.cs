@@ -36,7 +36,7 @@ namespace ExtrasensoryGame.Data
 
         public static ItemData[] LoadItems()
         {
-            return LoadTexts(ItemsFileName, () => new TextData()).Select(d => (ItemData)d).ToArray();
+            return LoadTexts(ItemsFileName, () => new ItemData()).Select(d => (ItemData)d).ToArray();
         }
 
         private static LoadabelObject[] LoadTexts(string fileName, Func<LoadabelObject> getObjetInstance)
