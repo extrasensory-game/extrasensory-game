@@ -4,29 +4,43 @@ namespace ExtrasensoryGame
 {
 	public class Game : MonoBehaviour 
 	{
+		public GameObject Client;
 		public SpriteRenderer PlayerSprite;
 		public ClientGenerator clientGenerator;
-		Client client;
+		Client clientInstance;
 		// Use this for initialization
 		void Start () {
-			client = clientGenerator.GetClient();
-			PlayerSprite.sprite = client.Sprite;
+			InitNewClient ();
 		}
-		
+		private void InstantiateSprite(SpriteInstance spriteInstance)
+		{
+			var go = (SpriteInstance)GameObject.Instantiate (spriteInstance, new Vector3 (0, 0, spriteInstance.Layer), Quaternion.identity);
+			go.transform.parent = Client.transform;
+		}
+
+		public void InitNewClient()
+		{
+			clientInstance = clientGenerator.GetClient();
+			foreach (var sprite in clientInstance.CharacterSprites) 
+			{
+				InstantiateSprite (sprite);
+			}
+		}
+
 		// Update is called once per frame
 		void Update () {
 
 		}
 
-		public int UseEyeByClient()
+		public void UseEyeByClient()
 		{
-			if (client.ClientState.EyeStatus == EyeStatus.WithGhost ||
-			    client.ClientState.EyeStatus == EyeStatus.Characteristic3) {
-				return 0;
+			if (clientInstance.ClientState.EyeStatus == EyeStatus.WithGhost ||
+			    clientInstance.ClientState.EyeStatus == EyeStatus.Characteristic3) {
+				return;
 			} else {
-				client.ClientState.EyeStatus++;
+				clientInstance.ClientState.EyeStatus++;
 			}
-			return 0;
+			return;
 		}
 	}
 }
