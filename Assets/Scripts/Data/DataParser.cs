@@ -12,6 +12,7 @@ namespace ExtrasensoryGame.Data
         private const string ReplaysFile = "Replays";
         private const string SpiritPhrasesFile = "SpiritPhrases";
         private const string SpiritFile = "Spirit";
+        private const string ItemsFileName = "Items";
 
         public static SpiritData[] LoadSpiritsData()
         {
@@ -31,6 +32,11 @@ namespace ExtrasensoryGame.Data
         public static TextData[] LoadReplayTexts()
         {
             return LoadTexts(ReplaysFile, () => new TextData()).Select(d => (TextData)d).ToArray();
+        }
+
+        public static ItemData[] LoadItems()
+        {
+            return LoadTexts(ItemsFileName, () => new TextData()).Select(d => (ItemData)d).ToArray();
         }
 
         private static LoadabelObject[] LoadTexts(string fileName, Func<LoadabelObject> getObjetInstance)
@@ -102,20 +108,25 @@ namespace ExtrasensoryGame.Data
             public string Name;
             public int[] Phrases;
             public bool IsPremium;
+            public int[] PleasantItemIds;
 
             public override void Init(string[] data)
             {
                 Id = int.Parse(data[0]);
                 Name = data[1];
 
-                var split = data[2].Split(',');
-                Phrases = new int[split.Length];
-                for (int i = 0; i < split.Length; i++)
+                var splitedPhrases = data[2].Split(',');
+                Phrases = new int[splitedPhrases.Length];
+                for (int i = 0; i < splitedPhrases.Length; i++)
                 {
-                    Phrases[i] = int.Parse(split[i]);
+                    Phrases[i] = int.Parse(splitedPhrases[i]);
                 }
 
                 IsPremium = int.Parse(data[3]) != 0;
+
+                var splitedPeasefulItemIds = data[4].Split(',');
+                PleasantItemIds = splitedPeasefulItemIds
+                    .Select(stringItemId => int.Parse(stringItemId)).ToArray();
             }
         }
     }

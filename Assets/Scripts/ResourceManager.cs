@@ -36,7 +36,7 @@ namespace ExtrasensoryGame
             for (int i = 0; i < _spirits.Length; i++)
             {
                 var phrases = _spiritPhrases.Where(p => spirits[i].Phrases.Contains(p.Id)).ToArray();
-                _spirits[i] = new SpiritData(spirits[i].Id, phrases, spirits[i].IsPremium, spirits[i].Name);
+                _spirits[i] = new SpiritData(spirits[i].Id, phrases, spirits[i].IsPremium, spirits[i].Name, spirits[i].PleasantItemIds);
             }
         }
 

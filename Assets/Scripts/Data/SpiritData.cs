@@ -17,20 +17,17 @@ namespace ExtrasensoryGame.Data
         private SpiritPhrase[] _avaliableDialogs;
         private int _nextDialogIndex = 0;
 
+        private int[] _pleasantItemIds;
+
         private IDictionary<int, float> _itemsInfluence;
 
-        public SpiritData(int id, SpiritPhrase[] avaliableDialogs, bool isPremium, string name)
+        public SpiritData(int id, SpiritPhrase[] avaliableDialogs, bool isPremium, string name, int[] pleasantItemIds)
         {
             _id = id;
             _avaliableDialogs = avaliableDialogs;
             _name = name;
             _isPremium = isPremium;
-        }
-
-        public SpiritData(SpiritPhrase[] avaliableDialogs, IDictionary<int, float> itemsInfluence)
-        {
-            _avaliableDialogs = avaliableDialogs;
-            _itemsInfluence = itemsInfluence;
+            _pleasantItemIds = pleasantItemIds;
         }
 
         public bool HasNextDialog()
