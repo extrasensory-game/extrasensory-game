@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ModeManager : MonoBehaviour
 {
+    public SpiritMode SpiritMode { get { return this._mode as SpiritMode; } }
+
     private IMode _mode;
     public ClientGenerator ClientGenerator;
 	public ResourceManager ResourceManager;
@@ -53,7 +55,8 @@ public class ModeManager : MonoBehaviour
                 return new SpiritMode(
                     clientMode.Client,
                     ResourceManager.GetRandomSpirit(),
-                    _uiManager.ClientPanel);
+                    _uiManager.ClientPanel,
+                    _uiManager.Cupboard);
             else
 				return new FoolMode(clientMode.Client);
         }

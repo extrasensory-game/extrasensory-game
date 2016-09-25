@@ -1687,6 +1687,7 @@ MonoBehaviour:
   NextClientPanel: {fileID: 743056137}
   ClientPanel: {fileID: 54531347}
   RageSlider: {fileID: 1656330948}
+  Cupboard: {fileID: 1964904224}
 --- !u!4 &758067516
 Transform:
   m_ObjectHideFlags: 0
@@ -4563,7 +4564,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1964904225
 Transform:
   m_ObjectHideFlags: 0
@@ -4629,7 +4630,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd54a8b1503e6e44bb1e7adb884f6a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resourceManager: {fileID: 38817184}
   _cupboardPanel: {fileID: 8014100}
 --- !u!1 &1975453552
 GameObject:

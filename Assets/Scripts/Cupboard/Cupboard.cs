@@ -9,6 +9,8 @@ namespace ExtrasensoryGame.Cupboard
         [SerializeField]
         private CupboardPanel _cupboardPanel;
 
+        private SpiritMode SpiritMode { get { return GameObject.FindObjectOfType<ModeManager>().SpiritMode; } }
+
         public void OnMouseUpAsButton()
         {
             if(!EventSystem.current.IsPointerOverGameObject())

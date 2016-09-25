@@ -9,6 +9,7 @@ namespace ExtrasensoryGame
         public GameObject NextClientPanel;
         public GameObject ClientPanel;
         public GameObject RageSlider;
+        public GameObject Cupboard;
 
         private Slider rageSlider;
 
