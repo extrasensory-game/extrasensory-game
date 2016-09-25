@@ -8,7 +8,7 @@ public class SpiritMode : IMode
     private GameObject _spiritObject;
 
     private int _framesCount = 0;
-	private ClientData clientData;
+	private Client clientData;
     private SpiritData spiritData;
 	private readonly GameObject clientPanel;
 	private Game _game;
@@ -18,7 +18,7 @@ public class SpiritMode : IMode
 	private GameObject clientObject;
 	private GameObject clientPrefab;
 
-	public SpiritMode(ClientData client, SpiritData spiritData, GameObject clientPanel, GameObject clientPrefab)
+	public SpiritMode(Client client, SpiritData spiritData, GameObject clientPanel, GameObject clientPrefab)
     {
         this.clientData = client;
 		this.spiritData = spiritData;

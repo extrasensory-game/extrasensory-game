@@ -1,18 +1,26 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using ExtrasensoryGame.Data;
 
-namespace ExtrasensoryGame
+using System;
+using UnityEngine;
+using System.Linq;
+
+namespace ExtrasensoryGame.Data
 {
-	public class ClientData {
+    using Enums;
 
-		public List<SpriteInstance> CharacterSprites = new List<SpriteInstance>();
-		public SpiritData SpiritData;
+    [Serializable]
+    public class ClientData : DataParser.LoadabelObject
+    {
+        public int Id;
+        public string Name;
+        public CharacterCharacteristic[] Attributes;
 
-		public int confidience = 0;
-		public EyeStatus EyeStatus;
-		public bool IsHavingSpirit { get; set; }
-
-	}
+        public override void Init(string[] data)
+        {
+            Id = int.Parse(data[0]);
+            Name = data[1];
+            Attributes = data[2].Split(',')
+                .Select(attributeIdString => (CharacterCharacteristic)Int32.Parse(attributeIdString))
+                .ToArray();
+        }
+    }
 }

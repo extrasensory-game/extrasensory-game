@@ -13,7 +13,8 @@ namespace ExtrasensoryGame.Data
     {
         private float _rage = 0;
 
-        private int _id;
+        public int Id;
+
         private string _name;
         private bool _isPremium;
 
@@ -24,18 +25,28 @@ namespace ExtrasensoryGame.Data
 
         public GameObject Prefab;
 
-        public SpiritData(int id, SpiritPhrase[] phrases, bool isPremium, string name, int[] pleasantItemIds)
+        public SpiritDialog[] Dialogs;
+
+        public SpiritData(int id, SpiritPhrase[] phrases, bool isPremium, string name, int[] pleasantItemIds, int[] dialogIds)
         {
-            _id = id;
+            Id = id;
             _avaliablePhrases = new List<SpiritPhrase>(phrases);
             _name = name;
             _isPremium = isPremium;
             _pleasantItemIds = pleasantItemIds;
         }
+        
+        public SpiritDialog GetNextDialog()
+        {
+            if (_nextDialogIndex + 1 < this.Dialogs.Length)
+                return this.Dialogs[_nextDialogIndex++];
+
+            return null;
+        }
 
         public bool HasNextDialog()
         {
-            return this._nextDialogIndex < this._avaliablePhrases.Count;
+            return this._nextDialogIndex < this.Dialogs.Length;
         }
 
         public SpiritPhrase[] GetSpiritPhrases()

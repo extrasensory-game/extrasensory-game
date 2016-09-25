@@ -10,12 +10,13 @@ public class DiabloEntering : MonoBehaviour
     
     public void OnAnimationEnd()
     {
-        StartCoroutine(WaitAndOpenPanel()); 
+        //StartCoroutine(WaitAndOpenPanel()); 
+        scrollPanel.OpenPanel();
     }
 
     private IEnumerator WaitAndOpenPanel()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         scrollPanel.OpenPanel();
     }
 

@@ -5,7 +5,7 @@ namespace ExtrasensoryGame
 {
 	public class PlayerData 
 	{
-		public ClientData CurrentClient;
+		public Client CurrentClient;
 		public float MagicPower = 100;
 
 	}
