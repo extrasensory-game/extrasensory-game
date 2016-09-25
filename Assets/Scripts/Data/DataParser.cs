@@ -14,6 +14,7 @@ namespace ExtrasensoryGame.Data
         private const string SpiritFile = "Spirit";
         private const string ItemsFileName = "Items";
         private const string ClientsFileName = "Clients";
+        private const string SpiritDialogsFileName = "SpiritDialogs";        
 
         public static SpiritData[] LoadSpiritsData()
         {
@@ -43,6 +44,11 @@ namespace ExtrasensoryGame.Data
         public static ClientData[] LoadClients()
         {
             return LoadTexts(ClientsFileName, () => new ClientData()).Select(d => (ClientData)d).ToArray();
+        }
+
+        public static SpiritDialogs.SpiritDialog[] LoadSpiritDialogs()
+        {
+            return LoadTexts(SpiritDialogsFileName, () => new SpiritDialogs.SpiritDialog()).Select(d => (SpiritDialogs.SpiritDialog)d).ToArray();
         }
 
         private static LoadabelObject[] LoadTexts(string fileName, Func<LoadabelObject> getObjetInstance)
@@ -115,6 +121,7 @@ namespace ExtrasensoryGame.Data
             public int[] Phrases;
             public bool IsPremium;
             public int[] PleasantItemIds;
+            public int[] DialogIds;
 
             public override void Init(string[] data)
             {
@@ -133,6 +140,9 @@ namespace ExtrasensoryGame.Data
                 var splitedPeasefulItemIds = data[4].Split(',');
                 PleasantItemIds = splitedPeasefulItemIds
                     .Select(stringItemId => int.Parse(stringItemId)).ToArray();
+
+                DialogIds = data[5].Split(',')
+                    .Select(stringDialogId => int.Parse(stringDialogId)).ToArray();
             }
         }
     }
