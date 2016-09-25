@@ -18,7 +18,7 @@ namespace ExtrasensoryGame.Cupboard
         {
             if(!EventSystem.current.IsPointerOverGameObject())
             {
-                _cupboardPanel.ShowPanel(Game.Instance.Player.Items, data =>
+                _cupboardPanel.ShowPanel(Game.Instance.Player.GetArtifacts(), data =>
                 {
                     if (ItemClicked != null)
                         ItemClicked(data);
