@@ -72,7 +72,9 @@ namespace ExtrasensoryGame.Data
 
         public SpiritState GetState()
         {
+            return _rage < -20
                     ? SpiritState.CatchedPeaceful
+                    : (_rage > 20 
                          ? SpiritState.CatchedAgressive 
                          : SpiritState.Neutral);
         }
