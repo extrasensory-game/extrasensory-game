@@ -30,6 +30,8 @@ namespace ExtrasensoryGame.Assets.Scripts
 
         private GameObject player;
 
+        public static bool ClientGoAway = false;
+
         // Update is called once per frame
         private void Start()
         {
@@ -38,8 +40,9 @@ namespace ExtrasensoryGame.Assets.Scripts
             table.SetActive(false);
             player = GameObject.FindGameObjectWithTag("Player");
             player.SetActive(false);
+            ClientGoAway = false;
 
-            phrases= resourceManager.GetRandomHoroscopePhrases();
+            phrases = resourceManager.GetRandomHoroscopePhrases();
             for (int i = 0; i < toggles.Count; i++)
                 toggles[i].GetComponentInChildren<Text>().text = phrases[i].Text;
         }
@@ -72,6 +75,10 @@ namespace ExtrasensoryGame.Assets.Scripts
             background.sprite = mainBackgroundSprite;
             player.SetActive(true);
             table.SetActive(true);
+            // ыва
+
+            ClientGoAway = true;
+            GameObject.Destroy(player);
         }
     }
 }
