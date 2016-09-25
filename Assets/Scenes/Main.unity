@@ -1591,11 +1591,11 @@ RectTransform:
   - {fileID: 915969450}
   - {fileID: 877737360}
   - {fileID: 1681960277}
-  - {fileID: 1656330949}
   - {fileID: 8014099}
   - {fileID: 12357201}
   - {fileID: 1064831087}
   - {fileID: 1497602671}
+  - {fileID: 1656330949}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
@@ -1608,6 +1608,11 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224000012094662956, guid: c61c2c01ebd38994a8df5c4ae6ff6a56,
     type: 2}
   m_PrefabInternal: {fileID: 2084911540}
+--- !u!1 &988070910 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013521604562, guid: 18c5c6fa31f417c4cb36f3c8df463979,
+    type: 2}
+  m_PrefabInternal: {fileID: 8014098}
 --- !u!1 &1043195576
 GameObject:
   m_ObjectHideFlags: 0
@@ -2174,6 +2179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MagicPowerBar: {fileID: 301583268}
   Client: {fileID: 2033055628}
+  CapboardPanel: {fileID: 988070910}
   clientGenerator: {fileID: 1488432478}
   Door: {fileID: 1641585121}
   SpiritDialogInstance: {fileID: 12357202}
@@ -2938,7 +2944,7 @@ RectTransform:
   - {fileID: 322502152}
   - {fileID: 159079650}
   m_Father: {fileID: 889312961}
-  m_RootOrder: 6
+  m_RootOrder: 11
   m_AnchorMin: {x: 0.3, y: 0.1}
   m_AnchorMax: {x: 0.7, y: 0.2}
   m_AnchoredPosition: {x: 0, y: 0}

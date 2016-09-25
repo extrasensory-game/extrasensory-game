@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 namespace ExtrasensoryGame.Cupboard
 {
     public class Cupboard : MonoBehaviour
-    {
-        public event Action<ItemData> ItemClicked;
+	{
+		public event Action<ItemData> ItemClicked;
 
         [SerializeField]
         private CupboardPanel _cupboardPanel;
@@ -16,8 +16,10 @@ namespace ExtrasensoryGame.Cupboard
 
         public void OnMouseUpAsButton()
         {
+			
             if(!EventSystem.current.IsPointerOverGameObject())
             {
+				
                 _cupboardPanel.ShowPanel(Game.Instance.Player.Items, data =>
                 {
                     if (ItemClicked != null)

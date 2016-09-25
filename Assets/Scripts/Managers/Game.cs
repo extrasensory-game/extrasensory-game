@@ -14,6 +14,7 @@ namespace ExtrasensoryGame
         public ProgressBar.ProgressBarBehaviour MagicPowerBar;
 		public PlayerData Player = new PlayerData();
 		public GameObject Client;
+		public GameObject CapboardPanel;
 		public ClientGenerator clientGenerator;
 		public ActiveObject Door;
 		public Action EyeUsing;
