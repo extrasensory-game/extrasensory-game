@@ -210,12 +210,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224000010500339594, guid: 95a7c6c82d340024da5c919a02d6f64d,
     type: 2}
   m_PrefabInternal: {fileID: 1549067948}
---- !u!114 &12357202 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000012921753290, guid: 95a7c6c82d340024da5c919a02d6f64d,
-    type: 2}
-  m_PrefabInternal: {fileID: 1549067948}
-  m_Script: {fileID: 11500000, guid: 7e30a27e80dadc0419e53cbe1911ad40, type: 3}
 --- !u!1 &38817183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,6 +1110,7 @@ MonoBehaviour:
   RestartPanel: {fileID: 769676487}
   ClientPanel: {fileID: 54531347}
   RageSlider: {fileID: 1656330948}
+  Cupboard: {fileID: 1964904224}
   AstrologyPanel: {fileID: 1975453552}
 --- !u!4 &758067516
 Transform:
@@ -1391,6 +1386,7 @@ RectTransform:
   - {fileID: 1656330949}
   - {fileID: 8014099}
   - {fileID: 1975453553}
+  - {fileID: 12357201}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
@@ -3079,7 +3075,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1964904225
 Transform:
   m_ObjectHideFlags: 0
