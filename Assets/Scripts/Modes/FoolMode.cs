@@ -6,9 +6,14 @@ public class FoolMode : IMode
 	private readonly Client client;
 	private Game _game;
 
-    public FoolMode(Client client)
+    private readonly ClickableCollider _globeCollider;
+    private readonly GameObject _astrologyPanel;
+
+    public FoolMode(Client client, ClickableCollider globeCollider, GameObject astrologyPanel)
     {
         this.client = client;
+        this._globeCollider = globeCollider;
+        this._astrologyPanel = astrologyPanel;
     }
 
     public void Init(Game game)
@@ -16,6 +21,7 @@ public class FoolMode : IMode
 		_game = game;
 		Debug.Log("Init FoolMode");
 		_game.EyeUsing += UseEye;
+        _globeCollider.OnClick += ShowGlobusGame;
     }
 
     public void Update()
@@ -29,9 +35,11 @@ public class FoolMode : IMode
 
     public void Deinit()
     {
+        this._astrologyPanel.SetActive(false);
+        _globeCollider.OnClick -= ShowGlobusGame;
     }
 
-	private void UseEye()
+    private void UseEye()
 	{
 		switch (client.EyeStatus) 
 		{
@@ -55,4 +63,9 @@ public class FoolMode : IMode
 
 		}
 	}
+
+    public void ShowGlobusGame()
+    {
+        _astrologyPanel.SetActive(true);
+    }
 }

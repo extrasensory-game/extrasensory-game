@@ -1,22 +1,15 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using ExtrasensoryGame;
 
 public class WaitClientMode : IMode
 {
     private bool waiting = true;
-    private readonly GameObject nextClientPanel;
 	private Game _game;
-    public WaitClientMode(GameObject nextClientPanel)
-    {
-        this.nextClientPanel = nextClientPanel;
-    }
 
 	public void Init(Game game)
 	{
 		_game = game;
-        this.nextClientPanel.SetActive(true);
-		_game.Door.DoorOpened += CallNextClient;
+		_game.Door.Action += CallNextClient;
     }
 
     public void Update()
@@ -30,8 +23,7 @@ public class WaitClientMode : IMode
 
     public void Deinit()
     {
-		this.nextClientPanel.SetActive(false);
-		_game.Door.DoorOpened -= CallNextClient;
+		_game.Door.Action -= CallNextClient;
     }
 
     private void CallNextClient()

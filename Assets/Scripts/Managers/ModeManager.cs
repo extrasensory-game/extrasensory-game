@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ModeManager : MonoBehaviour
 {
+    public SpiritMode SpiritMode { get { return this._mode as SpiritMode; } }
+
     private IMode _mode;
     public ClientGenerator ClientGenerator;
 	public ResourceManager ResourceManager;
@@ -38,13 +40,13 @@ public class ModeManager : MonoBehaviour
 
     private IMode GetStartMode()
     {
-        return new WaitClientMode(_uiManager.NextClientPanel);
+        return new WaitClientMode();
     }
 
     private IMode GetNextMode(IMode mode)
     {
         if (mode is WaitClientMode)
-            return new ClientMode(ResourceManager.GetNextClient(), clientPrefab);
+            return new ClientMode(ResourceManager.GetNextClient(), clientPrefab, _uiManager.OpeningDoor);
         if (mode is ClientMode)
         {
             var clientMode = (ClientMode)mode;
@@ -53,12 +55,20 @@ public class ModeManager : MonoBehaviour
                 return new SpiritMode(
                     clientMode.Client,
                     ResourceManager.GetRandomSpirit(),
-                    _uiManager.ClientPanel);
+                    _uiManager.ClientPanel,
+                    _uiManager.Cupboard,
+                    _uiManager.RageSlider);
             else
-				return new FoolMode(clientMode.Client);
-        }
-        if (mode is SpiritMode)
-            return new WaitClientMode(_uiManager.NextClientPanel);
+				return new FoolMode(clientMode.Client, _uiManager.GlobeCollider, _uiManager.AstrologyPanel);
+		}
+		if (mode is SpiritMode) 
+		{
+			return new WaitClientMode ();
+		}
+		if (mode is FoolMode) 
+		{
+			return new WaitClientMode ();
+		}
         throw new NotImplementedException();
     }
 }

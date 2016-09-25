@@ -454,9 +454,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012191356236}
-  - 114: {fileID: 114000013951099242}
+  - 114: {fileID: 114000013831565528}
   m_Layer: 0
-  m_Name: MagicSphereGamePanel
+  m_Name: AstrologyGamePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1380,7 +1380,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Toggle
---- !u!114 &114000013951099242
+--- !u!114 &114000013831565528
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

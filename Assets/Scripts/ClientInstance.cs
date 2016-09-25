@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using ExtrasensoryGame;
 
-public class ClientInstance : MonoBehaviour {
+public class ClientInstance : ActiveObject {
 
 	public SpriteRenderer Characteristic1;
 	public SpriteRenderer Characteristic2;
