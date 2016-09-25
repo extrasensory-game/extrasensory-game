@@ -10,11 +10,15 @@ namespace ExtrasensoryGame
         private SpiritPhrase[] _spiritPhrases;
         private SpiritData[] _spirits;
         private ItemData[] _items;
+        private ClientData[] _clients;
 
         [SerializeField]
         private GameObject[] _spiritPrefabs;
 
-        private ClientGenerator _clientGenerator = new ClientGenerator();
+        [SerializeField]
+        private ClientGenerator _clientGenerator;
+
+        private int clientIndex = 0;
 
         private void Start()
         {
@@ -26,6 +30,7 @@ namespace ExtrasensoryGame
             LoadSpiritPhrases();
             LoadSpirits();
             LoadItems();
+            LoadClients();
         }
 
         private void LoadItems()
@@ -33,9 +38,19 @@ namespace ExtrasensoryGame
             _items = DataParser.LoadItems();
         }
 
+        private void LoadClients()
+        {
+            _clients = DataParser.LoadClients();
+        }
+
         public Client GetNextClient()
         {
-            return _clientGenerator.GetClient();
+            if (clientIndex >= _clients.Length)
+                return null;
+
+            var client = _clientGenerator.GetClient();
+            client.ClientData = _clients[clientIndex++];
+            return client;
         }
 
         public SpiritData GetRandomSpirit()
