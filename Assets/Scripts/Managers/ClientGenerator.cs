@@ -9,9 +9,9 @@ namespace ExtrasensoryGame
 
 		public SpriteManager SpriteManager;
 
-		public Client GetClient()
+		public ClientData GetClient()
 		{
-			var client = new Client ();
+			var client = new ClientData ();
             
 			var a = SpriteManager.GetRandomHeat ();
 			if(a!=null)

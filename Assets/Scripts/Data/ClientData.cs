@@ -5,7 +5,7 @@ using ExtrasensoryGame.Data;
 
 namespace ExtrasensoryGame
 {
-	public class Client {
+	public class ClientData {
 
 		public List<SpriteInstance> CharacterSprites = new List<SpriteInstance>();
 		public SpiritData SpiritData;

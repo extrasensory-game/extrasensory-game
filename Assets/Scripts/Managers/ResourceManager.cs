@@ -33,7 +33,7 @@ namespace ExtrasensoryGame
             _items = DataParser.LoadItems();
         }
 
-        public Client GetNextClient()
+        public ClientData GetNextClient()
         {
             return _clientGenerator.GetClient();
         }
