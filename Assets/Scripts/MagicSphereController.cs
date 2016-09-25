@@ -71,8 +71,10 @@ namespace ExtrasensoryGame.Assets.Scripts
 
             if (counter == 3)
             {
+                foreach (Toggle toggle in toggles)
+                    toggle.isOn = false;
+
                 StartCoroutine(WaitAndDisable());
-                
             }
         }
 
