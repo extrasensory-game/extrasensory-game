@@ -13,18 +13,20 @@ public class SpiritMode : IMode
     private GameObject clientObject;
 	private readonly GameObject clientPanel;
 	private Game _game;
+	private GameObject clientPrefab;
 
-    public SpiritMode(Client client, SpiritData spiritData, GameObject clientPanel)
+	public SpiritMode(Client client, SpiritData spiritData, GameObject clientPanel, GameObject clientPrefab)
     {
         this.client = client;
-        this.spiritData = spiritData;
-        this.clientPanel = clientPanel;
+		this.spiritData = spiritData;
+		this.clientPanel = clientPanel;
+		this.clientPrefab = clientPrefab;
     }
 
 	public void Init(Game game)
 	{
 		_game = game;
-        this.clientObject = new GameObject();
+		this.clientObject = GameObject.Instantiate (clientPrefab);
 
         foreach (var sprite in client.CharacterSprites)
         {
