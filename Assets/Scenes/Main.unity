@@ -229,10 +229,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 38817183}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaf5e3e493931394d8e4a24d921d691e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4af29c6811e1d6f49ad964ac01df9ebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spiritPrefabs:
+  - {fileID: 1000010650585700, guid: 995fda0a5bd0ca94484de369f9ecdd3e, type: 2}
+  - {fileID: 1000010650585700, guid: 995fda0a5bd0ca94484de369f9ecdd3e, type: 2}
   - {fileID: 1000010650585700, guid: 995fda0a5bd0ca94484de369f9ecdd3e, type: 2}
   - {fileID: 1000010650585700, guid: 995fda0a5bd0ca94484de369f9ecdd3e, type: 2}
   - {fileID: 1000010650585700, guid: 995fda0a5bd0ca94484de369f9ecdd3e, type: 2}
@@ -3115,6 +3117,8 @@ MonoBehaviour:
   Client: {fileID: 2033055628}
   clientGenerator: {fileID: 1488432478}
   Door: {fileID: 1641585121}
+  SpiritDialogInstance: {fileID: 114000012921753290, guid: 95a7c6c82d340024da5c919a02d6f64d,
+    type: 2}
 --- !u!4 &1431457942
 Transform:
   m_ObjectHideFlags: 0
@@ -3580,7 +3584,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1641585120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ecee3c74884a554982fd96d0be997f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 615f53db8e85ef540830fd17bcdf40d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!60 &1641585122
