@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class SpiritMode : IMode
 {
     private GameObject _spiritObject;
-
-    private int _framesCount = 0;
+    
 	private Client clientData;
     private SpiritData spiritData;
 	private readonly GameObject clientPanel;
@@ -27,8 +26,9 @@ public class SpiritMode : IMode
     }
 
 	public void Init(Game game)
-	{
-		_game = game;
+    {
+        Debug.Log("Init SpiritMode");
+        _game = game;
 		this.clientObject = GameObject.Instantiate (clientPrefab);
 		clientInstantiate = this.clientObject.GetComponent<ClientInstance> ();
         foreach (var sprite in clientData.CharacterSprites)
@@ -45,8 +45,7 @@ public class SpiritMode : IMode
 
     public bool IsFinished()
     {
-        // ++_framesCount;
-        return _framesCount > 200;
+        return false;
     }
 
     public void Deinit()
