@@ -57,7 +57,7 @@ public class ClientMode : IMode
     private void EyeUsing()
     {
 		_eyeUsed = true;
-		_game.Player.MagicPower -= 20;
+		_game.Player.MagicPower -= 10;
     }
 
     private void InstantiateSprite(GameObject clientObject, SpriteInstance spriteInstance)

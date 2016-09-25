@@ -109,9 +109,26 @@ public class SpiritMode : IMode
         this._selectedItem = null;
     }
 
+    private readonly System.Random random = new System.Random();
+    private void SpiritWasCatched(SpiritState spiritState)
+    {
+        if (spiritState == SpiritState.CatchedAgressive)
+        {
+            Game.Instance.Player.Money += random.Next(30, 50);
+            is_finished = true;
+        }
+
+        if (spiritState == SpiritState.CatchedPeaceful)
+        {
+            Game.Instance.Player.Money += random.Next(30, 50);
+            Game.Instance.Player.SpiritPoints += random.Next(5, 10);
+            is_finished = true;
+        }
+    }
+
     private void RageChanged(float rageValue)
     {
-        this.rageSlider.value = (rageValue + 100f) / 200f;
+        this.rageSlider.value = (rageValue + 20f) / 40f;
     }
 
     public bool IsFinished()
@@ -134,12 +151,6 @@ public class SpiritMode : IMode
         spirit.OnRageChanged -= RageChanged;
         this.cupboard.ItemClicked -= CupboardItemClicked;
         this.spirit.OnStateChanged -= SpiritWasCatched;
-    }
-
-    private void SpiritWasCatched(SpiritState spiritState)
-    {
-        // Spirit was cached!
-        var x = 10;
     }
 
     private void CupboardItemClicked(ItemData itemData)
