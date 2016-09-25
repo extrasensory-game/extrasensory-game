@@ -9,6 +9,7 @@ using ExtrasensoryGame.Data.SpiritDialogs;
 
 public class SpiritMode : IMode
 {
+	private bool is_finished = false;
     private GameObject _spiritObject;
     
 	private readonly Client clientData;
@@ -22,7 +23,6 @@ public class SpiritMode : IMode
     public UIManager UIManager;
 
 	// Хранит инфу о рассположении инфы на объекте клиента(характеристики)
-	private ClientInstance clientInstance;
 	private SpiritDialog dialog;
 
 	public SpiritMode(Client client, Spirit spirit, GameObject clientPanel, GameObject cupboard, GameObject rageSlider)
@@ -36,8 +36,12 @@ public class SpiritMode : IMode
 
 	public void InitDialog()
 	{
-		_game.SpiritDialogInstance.gameObject.SetActive(true);
 		dialog = spirit.GetNextDialog ();
+		if (dialog == null) {
+			is_finished = true;
+			return;
+		}
+		_game.SpiritDialogInstance.gameObject.SetActive(true);
 		_game.SpiritDialogInstance.OnAnswerAction += CheckAnswer;
 		_game.SpiritDialogInstance.Answer1Text.text = dialog.Pharases [0].Speach;
 		_game.SpiritDialogInstance.Answer2Text.text = dialog.Pharases [1].Speach;
@@ -74,14 +78,15 @@ public class SpiritMode : IMode
 
     public bool IsFinished()
     {
-        return false;
+		return is_finished;
     }
 
     public void Deinit()
 	{
-		_game.Player.CurrentClient = null;
-        if (_spiritObject != null)
-            GameObject.Destroy(_spiritObject);
+		if (_spiritObject != null)
+			GameObject.Destroy(_spiritObject);
+		if (this.clientData.ClientInstance != null)
+			GameObject.Destroy(this.clientData.ClientInstance.gameObject);
 
 		this.clientData.ClientInstance.Action -= InitDialog;
         cupboard.gameObject.SetActive(false);

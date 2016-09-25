@@ -45,6 +45,7 @@ public class ModeManager : MonoBehaviour
 
     private IMode GetNextMode(IMode mode)
     {
+		mode.Deinit ();
         if (mode is WaitClientMode)
             return new ClientMode(ResourceManager.GetNextClient(), clientPrefab);
         if (mode is ClientMode)
@@ -60,9 +61,15 @@ public class ModeManager : MonoBehaviour
                     _uiManager.RageSlider);
             else
 				return new FoolMode(clientMode.Client, _uiManager.FoolTablePanel, _uiManager.AstrologyPanel);
-        }
-        if (mode is SpiritMode)
-            return new WaitClientMode();
+		}
+		if (mode is SpiritMode) 
+		{
+			return new WaitClientMode ();
+		}
+		if (mode is FoolMode) 
+		{
+			return new WaitClientMode ();
+		}
         throw new NotImplementedException();
     }
 }
