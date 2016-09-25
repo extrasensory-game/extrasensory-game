@@ -394,6 +394,9 @@ MonoBehaviour:
   Answer2: {fileID: 114000013735065752}
   Answer3: {fileID: 114000010131593574}
   Question: {fileID: 1000013748032290}
+  Answer1Text: {fileID: 114000012395290062}
+  Answer2Text: {fileID: 114000010569319330}
+  Answer3Text: {fileID: 114000011989747784}
   QuestionText: {fileID: 114000010279595396}
 --- !u!114 &114000013267479360
 MonoBehaviour:

@@ -11,11 +11,10 @@ namespace ExtrasensoryGame
 		public PlayerData Player = new PlayerData();
 		public GameObject Client;
 		public ClientGenerator clientGenerator;
-		public Door Door;
+		public ActiveObject Door;
 		public Action EyeUsing;
 		public SpiritDialogPanel SpiritDialogInstance;
 
-			
 		public void UseEye()
 		{
 			if (EyeUsing != null)

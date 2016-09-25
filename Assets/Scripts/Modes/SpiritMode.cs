@@ -25,6 +25,11 @@ public class SpiritMode : IMode
 		this.clientPrefab = clientPrefab;
     }
 
+	public void InitDialog()
+	{
+		_game.SpiritDialogInstance.gameObject.SetActive (true);
+	}
+
 	public void Init(Game game)
     {
         Debug.Log("Init SpiritMode");
@@ -37,6 +42,7 @@ public class SpiritMode : IMode
         }
 		_game.EyeUsing += UseEye;
 		_game.Player.CurrentClient = this.clientData;
+		_game.Door.DoorOpened += InitDialog;
     }
 
     public void Update()
