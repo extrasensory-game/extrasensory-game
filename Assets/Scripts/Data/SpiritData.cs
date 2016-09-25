@@ -11,6 +11,7 @@ namespace ExtrasensoryGame.Data
 
     public class SpiritData
     {
+        public float Rage { get { return this._rage; } }
         private float _rage = 0;
 
         public int Id;
