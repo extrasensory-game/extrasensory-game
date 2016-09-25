@@ -1,4 +1,5 @@
 ﻿using ExtrasensoryGame;
+using ExtrasensoryGame.Assets.Scripts;
 using UnityEngine;
 using ExtrasensoryGame.Enums;
 
@@ -31,7 +32,7 @@ public class FoolMode : IMode
 
     public bool IsFinished()
     {
-        return false;
+        return MagicSphereController.ClientGoAway;
     }
 
     public void Deinit()
