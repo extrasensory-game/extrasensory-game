@@ -1,4 +1,4 @@
-﻿namespace ExtrasensoryGame.Enums
+﻿    namespace ExtrasensoryGame.Enums
 {
     public enum CharacterCharacteristic
     {
