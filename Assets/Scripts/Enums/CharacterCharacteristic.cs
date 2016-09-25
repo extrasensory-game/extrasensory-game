@@ -29,7 +29,7 @@
                 case CharacterCharacteristic.Optimism:
                     return "оптимизм";
                 case CharacterCharacteristic.Pessimism:
-                    return "оптимизм";
+                    return "пессимизм";
                 case CharacterCharacteristic.Calmness:
                     return "спокойствие";
                 case CharacterCharacteristic.Aggression:
