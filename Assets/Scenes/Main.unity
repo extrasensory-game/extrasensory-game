@@ -956,7 +956,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &689062424
 Transform:
   m_ObjectHideFlags: 0
@@ -1377,9 +1377,9 @@ RectTransform:
   - {fileID: 915969450}
   - {fileID: 877737360}
   - {fileID: 492994226}
+  - {fileID: 1656330949}
   - {fileID: 8014099}
   - {fileID: 1975453553}
-  - {fileID: 1656330949}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
@@ -2417,7 +2417,7 @@ RectTransform:
   - {fileID: 322502152}
   - {fileID: 159079650}
   m_Father: {fileID: 889312961}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -143}
