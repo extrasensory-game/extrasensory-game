@@ -87,7 +87,11 @@ namespace ExtrasensoryGame.Shop
 
         public void ClickHandler(ItemData item)
         {
-            Game.Instance.Player.AddItem(item);
+            if (Game.Instance.Player.Money >= item.Price)
+            {
+                Game.Instance.Player.Money -= item.Price;
+                Game.Instance.Player.AddItem(item);
+            }
         }
     }
 }
