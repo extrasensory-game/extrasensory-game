@@ -20,11 +20,25 @@ namespace ExtrasensoryGame.Assets.Scripts
         [SerializeField]
         private Sprite gameBackgroundSprite;
 
+        private Sprite mainBackgroundSprite;
+
         private HoroscopePhrase[] phrases;
         private float sum = 0;
+
+        [SerializeField]
+        private GameObject table;
+
+        private GameObject player;
+
         // Update is called once per frame
         private void Start()
         {
+            mainBackgroundSprite = background.sprite;
+            background.sprite = gameBackgroundSprite;
+            table.SetActive(false);
+            player = GameObject.FindGameObjectWithTag("Player");
+            player.SetActive(false);
+
             phrases= resourceManager.GetRandomHoroscopePhrases();
             for (int i = 0; i < toggles.Count; i++)
                 toggles[i].GetComponentInChildren<Text>().text = phrases[i].Text;
@@ -55,6 +69,9 @@ namespace ExtrasensoryGame.Assets.Scripts
             yield return new WaitForSeconds(0.1f);
             Debug.Log("Сумма: " + sum);
             gameObject.SetActive(false);
+            background.sprite = mainBackgroundSprite;
+            player.SetActive(true);
+            table.SetActive(true);
         }
     }
 }

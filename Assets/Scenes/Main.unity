@@ -260,10 +260,16 @@ Prefab:
       propertyPath: resourceManager
       value: 
       objectReference: {fileID: 38817184}
-    - target: {fileID: 1000013624931044, guid: 253c13193cd702f47ad369c040a6ca7e, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 114000013831565528, guid: 253c13193cd702f47ad369c040a6ca7e,
+        type: 2}
+      propertyPath: background
+      value: 
+      objectReference: {fileID: 503638291}
+    - target: {fileID: 114000013831565528, guid: 253c13193cd702f47ad369c040a6ca7e,
+        type: 2}
+      propertyPath: table
+      value: 
+      objectReference: {fileID: 628736267}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 253c13193cd702f47ad369c040a6ca7e, type: 2}
   m_IsPrefabParent: 0

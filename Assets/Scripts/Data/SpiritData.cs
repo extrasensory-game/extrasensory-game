@@ -63,9 +63,10 @@ namespace ExtrasensoryGame.Data
 
         public float ApplyItem(ItemData itemData)
         {
-            this._rage += _pleasantItemIds.Any(ii => ii == itemData.Id) 
-                ? itemData.RageAbsoluteModifier 
+            var rageModifierValue = _pleasantItemIds.Any(ii => ii == itemData.Id)
+                ? itemData.RageAbsoluteModifier
                 : -itemData.RageAbsoluteModifier;
+            this._rage += rageModifierValue;
             return _rage;
         }
 

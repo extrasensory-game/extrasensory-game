@@ -7,7 +7,8 @@ namespace ExtrasensoryGame.Data
 
     public class Spirit
     {
-        public event Action<float> RageChanged;
+        public event Action<float> OnRageChanged;
+        public event Action<SpiritState> OnStateChanged;
 
         private SpiritData _spiritData;
 
@@ -36,19 +37,21 @@ namespace ExtrasensoryGame.Data
         {
             this._spiritData.SelectPhrase(phrase);
             this.UpdateRageBar();
+            if (StateChanged())
+                ApplyStateChanges();
         }
 
         private void UpdateRageBar()
         {
-            if (RageChanged != null)
-                this.RageChanged(this._spiritData.Rage);
+            if (OnRageChanged != null)
+                this.OnRageChanged(this._spiritData.Rage);
         }
 
         private SpiritState prevSpiritState = SpiritState.Neutral;
         private bool StateChanged()
         {
             var currentState = this._spiritData.GetState();
-            var changed = prevSpiritState == currentState;
+            var changed = prevSpiritState != currentState;
             this.prevSpiritState = currentState;
 
             return changed;
@@ -56,7 +59,8 @@ namespace ExtrasensoryGame.Data
 
         private void ApplyStateChanges()
         {
-            // Make ghost red or white and raise some events (interesting for game mode).
+            if (OnStateChanged != null)
+                OnStateChanged(this._spiritData.GetState());
         }
     }
 }

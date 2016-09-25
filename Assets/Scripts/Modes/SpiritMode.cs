@@ -88,10 +88,11 @@ public class SpiritMode : IMode
         cupboard.gameObject.SetActive(true);
         this.rageSlider.gameObject.SetActive(true);
 
-        this.spirit.RageChanged += RageChanged;
+        this.spirit.OnRageChanged += RageChanged;
         this.cupboard.ItemClicked += CupboardItemClicked;
+        this.spirit.OnStateChanged += SpiritWasCatched;
 
-        RageChanged(0f);
+        this.RageChanged(0f);
         this.rageSlider.enabled = false;
     }
 
@@ -127,8 +128,15 @@ public class SpiritMode : IMode
         cupboard.gameObject.SetActive(false);
         rageSlider.gameObject.SetActive(false);
 
-        spirit.RageChanged -= RageChanged;
+        spirit.OnRageChanged -= RageChanged;
         this.cupboard.ItemClicked -= CupboardItemClicked;
+        this.spirit.OnStateChanged -= SpiritWasCatched;
+    }
+
+    private void SpiritWasCatched(SpiritState spiritState)
+    {
+        // Spirit was cached!
+        var x = 10;
     }
 
     private void CupboardItemClicked(ItemData itemData)
