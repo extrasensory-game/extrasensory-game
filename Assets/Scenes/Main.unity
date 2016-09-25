@@ -3250,6 +3250,7 @@ MonoBehaviour:
   Door: {fileID: 1641585121}
   SpiritDialogInstance: {fileID: 114000012921753290, guid: 95a7c6c82d340024da5c919a02d6f64d,
     type: 2}
+  resourceManager: {fileID: 38817184}
 --- !u!4 &1431457942
 Transform:
   m_ObjectHideFlags: 0

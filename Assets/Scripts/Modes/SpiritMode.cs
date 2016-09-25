@@ -24,7 +24,7 @@ public class SpiritMode : IMode
 
 	public void InitDialog()
 	{
-		_game.SpiritDialogInstance.gameObject.SetActive (true);
+		_game.SpiritDialogInstance.gameObject.SetActive(true);
 	}
 
 	public void Init(Game game)
