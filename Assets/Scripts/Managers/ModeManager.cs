@@ -60,7 +60,7 @@ public class ModeManager : MonoBehaviour
                     _uiManager.Cupboard,
                     _uiManager.RageSlider);
             else
-				return new FoolMode(clientMode.Client, _uiManager.FoolTablePanel, _uiManager.AstrologyPanel);
+				return new FoolMode(clientMode.Client, _uiManager.GlobeCollider, _uiManager.AstrologyPanel);
 		}
 		if (mode is SpiritMode) 
 		{
