@@ -3416,8 +3416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab802210b4291aa4ba16f762b94a3436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heatSprites:
-  - {fileID: 114000010897421890, guid: 0a1086f54f3d6974fb96e4a52adeb552, type: 2}
+  heatSprites: []
   bodySprites:
   - {fileID: 114000011090593658, guid: 2811909868428204194bd53895a43f36, type: 2}
   faceSprites:
