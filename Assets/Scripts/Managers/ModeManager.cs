@@ -43,6 +43,7 @@ public class ModeManager : MonoBehaviour
         return new WaitClientMode();
     }
 
+    private bool clientHasSpirit = false;
     private IMode GetNextMode(IMode mode)
     {
         if (mode is WaitClientMode)
@@ -55,8 +56,8 @@ public class ModeManager : MonoBehaviour
         if (mode is ClientMode)
         {
             var clientMode = (ClientMode)mode;
-            var rnd = new System.Random();
-            if (rnd.Next(0, 2) == 0)
+            clientHasSpirit = !clientHasSpirit;
+            if (clientHasSpirit)
                 return new SpiritMode(
                     clientMode.Client,
                     ResourceManager.GetRandomSpirit(),
