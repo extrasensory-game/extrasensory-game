@@ -1,5 +1,6 @@
 ﻿using ExtrasensoryGame;
 using UnityEngine;
+using ExtrasensoryGame.Enums;
 
 public class FoolMode : IMode
 {
@@ -47,16 +48,19 @@ public class FoolMode : IMode
 			client.ClientInstance.Characteristic1.gameObject.SetActive (true);
 			_game.Player.MagicPower -= 10;
 			client.EyeStatus = EyeStatus.Characteristic1;
+			client.ClientInstance.Characteristic1Text.text = client.ClientData.Attributes[0].GetString();
 			break;
 		case EyeStatus.Characteristic1:
 			client.ClientInstance.Characteristic2.gameObject.SetActive (true);
 			_game.Player.MagicPower -= 10;
 			client.EyeStatus = EyeStatus.Characteristic2;
+			client.ClientInstance.Characteristic2Text.text = client.ClientData.Attributes[1].GetString();
 			break;
-		case EyeStatus.Characteristic2:
+		case EyeStatus.Characteristic2: 
 			client.ClientInstance.Characteristic3.gameObject.SetActive (true);
 			_game.Player.MagicPower -= 10;
 			client.EyeStatus = EyeStatus.Characteristic3;
+			client.ClientInstance.Characteristic3Text.text = client.ClientData.Attributes[2].GetString();
 			break;
 		default:
 			break;

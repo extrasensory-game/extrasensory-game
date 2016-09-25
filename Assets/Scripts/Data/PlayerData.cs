@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Linq;
+using ExtrasensoryGame.Enums;
 
 namespace ExtrasensoryGame
 {
@@ -10,6 +10,10 @@ namespace ExtrasensoryGame
 		public Client CurrentClient;
 		public float MagicPower = 100;
         public ItemData[] Items;
+	    public int Money;
+	    public int HumanityPoints;
+	    public int QuackPoints;
+	    public int SpiritPoints;
 
 	    public void AddItem(ItemData item)
 	    {
@@ -22,5 +26,14 @@ namespace ExtrasensoryGame
 	        items[items.Length - 1] = item;
 	        Items = items;
 	    }
-	}
+
+        public ItemData[] GetArtifacts()
+        {
+            return Items.Where(i => i.Type == ItemData.ItemDataType.artifact).ToArray();
+        }
+        public ItemData[] GetMedCheats()
+        {
+            return Items.Where(i => i.Type == ItemData.ItemDataType.medCheat).ToArray();
+        }
+    }
 }
