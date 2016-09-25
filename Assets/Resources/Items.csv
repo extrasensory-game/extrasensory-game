@@ -1,0 +1,21 @@
+id;name;rageAbsoluteModifier;itemType;price
+1;Свадебное кольцо;30;artifact;1
+2;Когти;10;medCheat;2
+3;Рог единорога;20;artifact;3
+4;Пятки великана;15;medCheat;4
+5;Пуповина младенца;10;artifact;5
+6;Мочевина;11;medCheat;6
+7;Оберег;12;artifact;1
+8;Баночка с зеблицей;14;medCheat;2
+9;Кузнечики;19;artifact;3
+10;Лапти;12;medCheat;4
+11;Святая вода;5;artifact;5
+12;Шерсть офцы;12;medCheat;6
+13;Кролечья лапка;3;artifact;1
+14;Шапка неведимка;32;medCheat;2
+15;Браслет;14;artifact;3
+16;Ногти;2;medCheat;4
+17;Лягушачьи лапки;9;artifact;5
+18;Волосы;22;medCheat;6
+19;Кровь;12;artifact;1
+20;Слюна;36;medCheat;2
