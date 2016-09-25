@@ -38,7 +38,7 @@ public class ModeManager : MonoBehaviour
 
     private IMode GetStartMode()
     {
-        return new WaitClientMode(_uiManager.NextClientPanel);
+        return new WaitClientMode();
     }
 
     private IMode GetNextMode(IMode mode)
@@ -55,10 +55,10 @@ public class ModeManager : MonoBehaviour
                     ResourceManager.GetRandomSpirit(),
                     _uiManager.ClientPanel);
             else
-				return new FoolMode(clientMode.Client);
+				return new FoolMode(clientMode.Client, _uiManager.AstrologyPanel);
         }
         if (mode is SpiritMode)
-            return new WaitClientMode(_uiManager.NextClientPanel);
+            return new WaitClientMode();
         throw new NotImplementedException();
     }
 }
