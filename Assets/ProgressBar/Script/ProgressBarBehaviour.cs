@@ -8,7 +8,9 @@ namespace ProgressBar
     /// This Script is directed at linearly progressing designs.
     /// </summary>
     public class ProgressBarBehaviour : MonoBehaviour, IIncrementable, IDecrementable
-    {
+	{
+		[SerializeField]
+		private Image img;
         /// <summary>
         /// Rect from the panel that will act as Filler.
         /// </summary>
@@ -170,7 +172,8 @@ namespace ProgressBar
             if (m_AttachedText)
                 m_AttachedText.text = Mathf.Round(Width / FillerInfo.MaxWidth * 100).ToString() + " %";
 
-            m_FillRect.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, XOffset, Width);
+			img.fillAmount = Width / FillerInfo.MaxWidth;
+            //m_FillRect.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, XOffset, Width);
         }
 
         /// <summary>
