@@ -9,8 +9,9 @@ namespace ExtrasensoryGame
         public GameObject ClientPanel;
         public GameObject RageSlider;
         public GameObject Cupboard;
+
+        public ClickableCollider GlobeCollider;
         public GameObject AstrologyPanel;
-        public GameObject FoolTablePanel;
 
         private Slider rageSlider;
 
