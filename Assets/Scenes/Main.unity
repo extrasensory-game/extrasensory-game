@@ -2892,6 +2892,11 @@ Prefab:
       propertyPath: background
       value: 
       objectReference: {fileID: 503638291}
+    - target: {fileID: 114000013831565528, guid: 253c13193cd702f47ad369c040a6ca7e,
+        type: 2}
+      propertyPath: resourceManager
+      value: 
+      objectReference: {fileID: 38817184}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 253c13193cd702f47ad369c040a6ca7e, type: 2}
   m_IsPrefabParent: 0
