@@ -56,7 +56,7 @@ public class FoolMode : IMode
 			client.EyeStatus = EyeStatus.Characteristic2;
 			client.ClientInstance.Characteristic2Text.text = client.ClientData.Attributes[1].GetString();
 			break;
-		case EyeStatus.Characteristic2:
+		case EyeStatus.Characteristic2: 
 			client.ClientInstance.Characteristic3.gameObject.SetActive (true);
 			_game.Player.MagicPower -= 10;
 			client.EyeStatus = EyeStatus.Characteristic3;
