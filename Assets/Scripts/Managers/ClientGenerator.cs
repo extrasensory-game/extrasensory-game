@@ -19,7 +19,10 @@ namespace ExtrasensoryGame
 			a = SpriteManager.GetRandomBody ();
 			if(a!=null)
 				client.CharacterSprites.Add (a);
-			return client;
+            a = SpriteManager.GetRandomFace();
+            if (a != null)
+                client.CharacterSprites.Add(a);
+            return client;
 		}
 
 	}

@@ -3420,6 +3420,11 @@ MonoBehaviour:
   - {fileID: 114000010897421890, guid: 0a1086f54f3d6974fb96e4a52adeb552, type: 2}
   bodySprites:
   - {fileID: 114000011090593658, guid: 2811909868428204194bd53895a43f36, type: 2}
+  faceSprites:
+  - {fileID: 114000011700771782, guid: 633ae983adb41594cbd94da80d70a9a3, type: 2}
+  - {fileID: 114000010439599468, guid: 3e7db1ee980bd644b8f173f2126c6027, type: 2}
+  - {fileID: 114000014134016392, guid: 23dd24a352cce624bb8a03cb0b8c135c, type: 2}
+  - {fileID: 114000010257734344, guid: d790adc4edd99cb47abc68e53aafbe8b, type: 2}
 --- !u!1 &1554535310
 GameObject:
   m_ObjectHideFlags: 0

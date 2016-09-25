@@ -48,8 +48,7 @@ public class ClientMode : IMode
 
     private void InstantiateSprite(GameObject clientObject, SpriteInstance spriteInstance)
     {
-        var go = (SpriteInstance)GameObject.Instantiate(
-            spriteInstance, new Vector3(0, 0, spriteInstance.Layer), Quaternion.identity);
+        var go = GameObject.Instantiate(spriteInstance);
         go.transform.parent = clientObject.transform;
     }
 }
