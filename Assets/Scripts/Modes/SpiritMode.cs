@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 using ExtrasensoryGame.Data;
 using ExtrasensoryGame.Cupboard;
+using ExtrasensoryGame.Data.SpiritDialogs;
 
 public class SpiritMode : IMode
 {
@@ -22,6 +23,7 @@ public class SpiritMode : IMode
 
 	// Хранит инфу о рассположении инфы на объекте клиента(характеристики)
 	private ClientInstance clientInstance;
+	private SpiritDialog dialog;
 
 	public SpiritMode(Client client, Spirit spirit, GameObject clientPanel, GameObject cupboard, GameObject rageSlider)
     {
@@ -34,7 +36,19 @@ public class SpiritMode : IMode
 
 	public void InitDialog()
 	{
-		_game.SpiritDialogInstance.gameObject.SetActive(true);        
+		_game.SpiritDialogInstance.gameObject.SetActive(true);
+		dialog = spirit.GetNextDialog ();
+		_game.SpiritDialogInstance.OnAnswerAction += CheckAnswer;
+		_game.SpiritDialogInstance.Answer1Text.text = dialog.Pharases [0].Speach;
+		_game.SpiritDialogInstance.Answer2Text.text = dialog.Pharases [1].Speach;
+		_game.SpiritDialogInstance.Answer3Text.text = dialog.Pharases [2].Speach;
+		_game.SpiritDialogInstance.QuestionText.text = dialog.Text;
+	}
+
+	private void CheckAnswer(int i)
+	{
+		_game.SpiritDialogInstance.OnAnswerAction -= CheckAnswer;
+		_game.SpiritDialogInstance.gameObject.SetActive(false);
 	}
 
 	public void Init(Game game)
@@ -42,7 +56,6 @@ public class SpiritMode : IMode
         Debug.Log("Init SpiritMode");
         _game = game;
 		_game.Player.CurrentClient = this.clientData;  
-		_game.Door.Action += InitDialog;
 		this.clientData.ClientInstance.Action += InitDialog;
 		ShowSpirit ();
         cupboard.gameObject.SetActive(true);
