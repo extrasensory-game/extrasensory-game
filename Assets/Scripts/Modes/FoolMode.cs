@@ -38,6 +38,7 @@ public class FoolMode : IMode
     public void Deinit()
     {
         this._astrologyPanel.SetActive(false);
+        _game.EyeUsing -= UseEye;
         _globeCollider.OnClick -= ShowGlobusGame;
     }
 
