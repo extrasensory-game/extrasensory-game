@@ -73,6 +73,7 @@ public class SpiritMode : IMode
 	{
 		_game.SpiritDialogInstance.OnAnswerAction -= CheckAnswer;
 		_game.SpiritDialogInstance.gameObject.SetActive(false);
+		spirit.SelectPhrase (dialog.Pharases [i-1]);
         this.clientData.ClientInstance.Action += SpiritClicked;
     }
 
