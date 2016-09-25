@@ -48,19 +48,19 @@ public class FoolMode : IMode
 		{
 		case EyeStatus.None:
 			client.ClientInstance.Characteristic1.gameObject.SetActive (true);
-			_game.Player.MagicPower -= 10;
+			_game.Player.MagicPower -= 3;
 			client.EyeStatus = EyeStatus.Characteristic1;
 			client.ClientInstance.Characteristic1Text.text = client.ClientData.Attributes[0].GetString();
 			break;
 		case EyeStatus.Characteristic1:
 			client.ClientInstance.Characteristic2.gameObject.SetActive (true);
-			_game.Player.MagicPower -= 10;
+			_game.Player.MagicPower -= 5;
 			client.EyeStatus = EyeStatus.Characteristic2;
 			client.ClientInstance.Characteristic2Text.text = client.ClientData.Attributes[1].GetString();
 			break;
 		case EyeStatus.Characteristic2: 
 			client.ClientInstance.Characteristic3.gameObject.SetActive (true);
-			_game.Player.MagicPower -= 10;
+			_game.Player.MagicPower -= 7;
 			client.EyeStatus = EyeStatus.Characteristic3;
 			client.ClientInstance.Characteristic3Text.text = client.ClientData.Attributes[2].GetString();
 			break;

@@ -16,7 +16,7 @@ public class ModeManager : MonoBehaviour
 	[SerializeField]
 	private GameObject clientPrefab;
 
-    private bool WasFoolMode = false;
+    private int clientNumber = 0;
 
     void Start()
     {
@@ -57,21 +57,12 @@ public class ModeManager : MonoBehaviour
         if (mode is ClientMode)
         {
             var clientMode = (ClientMode)mode;
-            var rnd = new System.Random();
-            if (rnd.Next(0, 2) == 0)
-                return new SpiritMode(clientMode.Client, ResourceManager.GetRandomSpirit(), _uiManager.ClientPanel,
-                    _uiManager.Cupboard, _uiManager.RageSlider, _uiManager.ExtrasensoryEffect);
+            ++clientNumber;
+            if (clientNumber == 2)
+                return new FoolMode(clientMode.Client, _uiManager.GlobeCollider, _uiManager.AstrologyPanel);
             else
-            {
-                if (WasFoolMode)
-                    return new SpiritMode(clientMode.Client, ResourceManager.GetRandomSpirit(), _uiManager.ClientPanel,
+                return new SpiritMode(clientMode.Client, ResourceManager.GetRandomSpirit(), _uiManager.ClientPanel,
                         _uiManager.Cupboard, _uiManager.RageSlider, _uiManager.ExtrasensoryEffect);
-                else
-                {
-                    WasFoolMode = true;
-                    return new FoolMode(clientMode.Client, _uiManager.GlobeCollider, _uiManager.AstrologyPanel);
-                }
-            }
 		}
 		if (mode is SpiritMode) 
 		{

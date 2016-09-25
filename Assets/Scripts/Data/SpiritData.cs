@@ -39,7 +39,7 @@ namespace ExtrasensoryGame.Data
         
         public SpiritDialog GetNextDialog()
         {
-            if (_nextDialogIndex + 1 < this.Dialogs.Length)
+            if (_nextDialogIndex < this.Dialogs.Length)
                 return this.Dialogs[_nextDialogIndex++];
 
             return null;
@@ -72,9 +72,9 @@ namespace ExtrasensoryGame.Data
 
         public SpiritState GetState()
         {
-            return _rage < -100 
+            return _rage < -20
                     ? SpiritState.CatchedPeaceful
-                    : (_rage > 100 
+                    : (_rage > 20 
                          ? SpiritState.CatchedAgressive 
                          : SpiritState.Neutral);
         }
