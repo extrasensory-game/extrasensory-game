@@ -10,10 +10,10 @@ namespace ExtrasensoryGame
 		public Client CurrentClient;
 		public float MagicPower = 100;
         public ItemData[] Items;
-	    public int Money;
-	    public int HumanityPoints;
-	    public int QuackPoints;
-	    public int SpiritPoints;
+	    public int Money = 20;
+	    public int HumanityPoints = 40;
+	    public int QuackPoints = 5;
+	    public int SpiritPoints = 0;
 
 	    public void AddItem(ItemData item)
 	    {
