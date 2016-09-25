@@ -18,6 +18,7 @@ public class SpiritMode : IMode
 	private readonly GameObject clientPanel;
     private readonly Cupboard cupboard;
     private readonly Slider rageSlider;
+    private readonly GameObject extrasensoryEffect;
 
     private Game _game;
 
@@ -27,11 +28,13 @@ public class SpiritMode : IMode
 	private SpiritDialog dialog;
     private ItemData _selectedItem;
 
-	public SpiritMode(Client client, Spirit spirit, GameObject clientPanel, GameObject cupboard, GameObject rageSlider)
+	public SpiritMode(Client client, Spirit spirit, GameObject clientPanel, GameObject cupboard, GameObject rageSlider,
+        GameObject extrasensoryEffect)
     {
         this.clientData = client;
 		this.spirit = spirit;
 		this.clientPanel = clientPanel;
+        this.extrasensoryEffect = extrasensoryEffect;
         this.cupboard = cupboard.GetComponent<Cupboard>();
         this.rageSlider = rageSlider.GetComponent<Slider>();
     }
@@ -80,6 +83,7 @@ public class SpiritMode : IMode
 		_game.Player.CurrentClient = this.clientData;  
 		this.clientData.ClientInstance.Action += SpiritClicked;
 		ShowSpirit ();
+        extrasensoryEffect.SetActive(true);
         cupboard.gameObject.SetActive(true);
         this.rageSlider.gameObject.SetActive(true);
 
@@ -118,6 +122,7 @@ public class SpiritMode : IMode
 			GameObject.Destroy(this.clientData.ClientInstance.gameObject);
 
 		this.clientData.ClientInstance.Action -= SpiritClicked;
+        extrasensoryEffect.SetActive(false);
         cupboard.gameObject.SetActive(false);
         rageSlider.gameObject.SetActive(false);
 

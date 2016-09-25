@@ -57,7 +57,8 @@ public class ModeManager : MonoBehaviour
                     ResourceManager.GetRandomSpirit(),
                     _uiManager.ClientPanel,
                     _uiManager.Cupboard,
-                    _uiManager.RageSlider);
+                    _uiManager.RageSlider,
+                    _uiManager.ExtrasensoryEffect);
             else
 				return new FoolMode(clientMode.Client, _uiManager.GlobeCollider, _uiManager.AstrologyPanel);
 		}

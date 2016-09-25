@@ -12,6 +12,8 @@ namespace ExtrasensoryGame
 
         public GameObject OpeningDoor;
 
+        public GameObject ExtrasensoryEffect;
+
         public ClickableCollider GlobeCollider;
         public GameObject AstrologyPanel;
 
