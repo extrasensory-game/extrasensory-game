@@ -193,7 +193,6 @@ GameObject:
   - 4: {fileID: 161256358}
   - 212: {fileID: 161256361}
   - 60: {fileID: 161256360}
-  - 114: {fileID: 161256359}
   m_Layer: 0
   m_Name: Cupboard
   m_TagString: Untagged
@@ -214,19 +213,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 767604191}
   m_RootOrder: 1
---- !u!114 &161256359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 161256357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd54a8b1503e6e44bb1e7adb884f6a3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _resourceManager: {fileID: 0}
-  _cupboardPanel: {fileID: 0}
 --- !u!60 &161256360
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -579,7 +565,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 2c26cb6d277ab9644ae4cf6be1f36ac4, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1

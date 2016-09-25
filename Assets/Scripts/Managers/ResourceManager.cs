@@ -7,6 +7,7 @@ namespace ExtrasensoryGame
 {
     public class ResourceManager : MonoBehaviour
     {
+        private SpiritDialog[] _spiritDialogs;
         private SpiritPhrase[] _spiritPhrases;
         private SpiritData[] _spirits;
         private ItemData[] _items;
@@ -18,7 +19,7 @@ namespace ExtrasensoryGame
         [SerializeField]
         private ClientGenerator _clientGenerator;
 
-        private int clientIndex = 0;
+        private int clientIndex = 0;        
 
         private void Start()
         {
@@ -28,6 +29,7 @@ namespace ExtrasensoryGame
         public void Init()
         {
             LoadSpiritPhrases();
+            LoadSpiritDialogs();
             LoadSpirits();
             LoadItems();
             LoadClients();
@@ -43,6 +45,13 @@ namespace ExtrasensoryGame
             _clients = DataParser.LoadClients();
         }
 
+        private void LoadSpiritDialogs()
+        {
+            _spiritDialogs = DataParser.LoadSpiritDialogs();
+            foreach (var dialog in _spiritDialogs)
+                dialog.InitPhrases(_spiritPhrases);
+        }
+
         public Client GetNextClient()
         {
             if (clientIndex >= _clients.Length)
@@ -51,6 +60,11 @@ namespace ExtrasensoryGame
             var client = _clientGenerator.GetClient();
             client.ClientData = _clients[clientIndex++];
             return client;
+        }
+
+        public SpiritDialog GetNextDialogForSpirit(int spiritId)
+        {
+            return this._spirits.First(spirit => spirit.Id == spiritId).GetNextDialog();
         }
 
         public SpiritData GetRandomSpirit()
@@ -66,7 +80,8 @@ namespace ExtrasensoryGame
             for (int i = 0; i < _spirits.Length; i++)
             {
                 var phrases = _spiritPhrases.Where(p => spirits[i].Phrases.Contains(p.Id)).ToArray();
-                _spirits[i] = new SpiritData(spirits[i].Id, phrases, spirits[i].IsPremium, spirits[i].Name, spirits[i].PleasantItemIds);
+                _spirits[i] = new SpiritData(spirits[i].Id, phrases, spirits[i].IsPremium, spirits[i].Name, spirits[i].PleasantItemIds, spirits[i].DialogIds);
+                _spirits[i].Dialogs = this._spiritDialogs.Where(dialog => spirits[i].DialogIds.Contains(dialog.Id)).ToArray();
                 _spirits[i].Prefab = _spiritPrefabs[i];
             }
         }

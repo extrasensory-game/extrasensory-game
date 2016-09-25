@@ -6,34 +6,43 @@ using UnityEngine.UI;
 public class SpiritMode : IMode
 {
     private GameObject _spiritObject;
-
-    private int _framesCount = 0;
-    private Client client;
+    
+	private Client clientData;
     private SpiritData spiritData;
-    private GameObject clientObject;
 	private readonly GameObject clientPanel;
 	private Game _game;
+
+	//Хранит инфу о рассположении инфы на объекте клиента(характеристики)
+	private ClientInstance clientInstantiate;
+	private GameObject clientObject;
 	private GameObject clientPrefab;
 
 	public SpiritMode(Client client, SpiritData spiritData, GameObject clientPanel, GameObject clientPrefab)
     {
-        this.client = client;
+        this.clientData = client;
 		this.spiritData = spiritData;
 		this.clientPanel = clientPanel;
 		this.clientPrefab = clientPrefab;
     }
 
-	public void Init(Game game)
+	public void InitDialog()
 	{
-		_game = game;
-		this.clientObject = GameObject.Instantiate (clientPrefab);
+		_game.SpiritDialogInstance.gameObject.SetActive (true);
+	}
 
-        foreach (var sprite in client.CharacterSprites)
+	public void Init(Game game)
+    {
+        Debug.Log("Init SpiritMode");
+        _game = game;
+		this.clientObject = GameObject.Instantiate (clientPrefab);
+		clientInstantiate = this.clientObject.GetComponent<ClientInstance> ();
+        foreach (var sprite in clientData.CharacterSprites)
         {
             InstantiateSprite(sprite);
         }
-
-		_game.Player.CurrentClient = this.client;
+		_game.EyeUsing += UseEye;
+		_game.Player.CurrentClient = this.clientData;
+		_game.Door.DoorOpened += InitDialog;
     }
 
     public void Update()
@@ -42,8 +51,7 @@ public class SpiritMode : IMode
 
     public bool IsFinished()
     {
-        // ++_framesCount;
-        return _framesCount > 200;
+        return false;
     }
 
     public void Deinit()
@@ -52,6 +60,40 @@ public class SpiritMode : IMode
         if (_spiritObject != null)
             GameObject.Destroy(_spiritObject);
     }
+
+	private void UseEye()
+	{
+		if (clientData == null)
+			return;
+		switch (clientData.EyeStatus) 
+		{
+		case EyeStatus.None:
+			_game.Player.MagicPower -= 20;
+			if (clientData.IsHavingSpirit)
+				clientData.EyeStatus = EyeStatus.WithGhost;
+			else
+				clientData.EyeStatus = EyeStatus.WithoutGhost;
+			break;
+		case EyeStatus.WithoutGhost:
+			clientInstantiate.Characteristic1.gameObject.SetActive (true);
+			_game.Player.MagicPower -= 10;
+			clientData.EyeStatus++;
+			break;
+		case EyeStatus.Characteristic1:
+			clientInstantiate.Characteristic2.gameObject.SetActive (true);
+			_game.Player.MagicPower -= 10;
+			clientData.EyeStatus++;
+			break;
+		case EyeStatus.Characteristic2:
+			clientInstantiate.Characteristic3.gameObject.SetActive (true);
+			_game.Player.MagicPower -= 10;
+			clientData.EyeStatus++;
+			break;
+		default:
+			break;
+
+		}
+	}
 
     private void InstantiateSprite(SpriteInstance spriteInstance)
     {

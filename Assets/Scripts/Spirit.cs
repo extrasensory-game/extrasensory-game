@@ -22,9 +22,9 @@ namespace ExtrasensoryGame.Data
                 ApplyStateChanges();
         }
 
-        public SpiritPhrase[] GetSpiritPhrases()
+        public SpiritDialog GetNextDialog()
         {
-            return this._spiritData.HasNextDialog() ? this._spiritData.GetSpiritPhrases() : new SpiritPhrase[0];
+            return this._spiritData.GetNextDialog();
         }
 
         public void SelectPhrase(SpiritPhrase phrase)
