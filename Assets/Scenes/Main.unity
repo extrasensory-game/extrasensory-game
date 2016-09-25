@@ -210,6 +210,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224000010500339594, guid: 95a7c6c82d340024da5c919a02d6f64d,
     type: 2}
   m_PrefabInternal: {fileID: 1549067948}
+--- !u!114 &12357202 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000012921753290, guid: 95a7c6c82d340024da5c919a02d6f64d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1549067948}
+  m_Script: {fileID: 11500000, guid: 7e30a27e80dadc0419e53cbe1911ad40, type: 3}
 --- !u!1 &38817183
 GameObject:
   m_ObjectHideFlags: 0
@@ -2042,8 +2048,7 @@ MonoBehaviour:
   Client: {fileID: 2033055628}
   clientGenerator: {fileID: 1488432478}
   Door: {fileID: 1641585121}
-  SpiritDialogInstance: {fileID: 114000012921753290, guid: 95a7c6c82d340024da5c919a02d6f64d,
-    type: 2}
+  SpiritDialogInstance: {fileID: 12357202}
   resourceManager: {fileID: 38817184}
 --- !u!4 &1431457942
 Transform:

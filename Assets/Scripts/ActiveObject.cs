@@ -5,12 +5,12 @@ namespace ExtrasensoryGame
 {
 	public class ActiveObject:MonoBehaviour
 	{
-		public Action DoorOpened;
+		public Action Action;
 
 		public void OnMouseUpAsButton()
 		{
-			if(DoorOpened!=null)
-				DoorOpened ();
+			if(Action!=null)
+				Action ();
 		}
 	}
 }

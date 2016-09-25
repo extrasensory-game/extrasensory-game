@@ -39,8 +39,9 @@ public class SpiritMode : IMode
     {
         Debug.Log("Init SpiritMode");
         _game = game;
-		_game.Player.CurrentClient = this.clientData;
-		_game.Door.DoorOpened += InitDialog;
+		_game.Player.CurrentClient = this.clientData;  
+		_game.Door.Action += InitDialog;
+		this.clientData.ClientInstance.Action += InitDialog;
 		ShowSpirit ();
         cupboard.gameObject.SetActive(true);
     }
@@ -60,6 +61,7 @@ public class SpiritMode : IMode
         if (_spiritObject != null)
             GameObject.Destroy(_spiritObject);
 
+		this.clientData.ClientInstance.Action -= InitDialog;
         cupboard.gameObject.SetActive(false);
     }
 

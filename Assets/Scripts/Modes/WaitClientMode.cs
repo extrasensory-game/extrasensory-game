@@ -9,7 +9,7 @@ public class WaitClientMode : IMode
 	public void Init(Game game)
 	{
 		_game = game;
-		_game.Door.DoorOpened += CallNextClient;
+		_game.Door.Action += CallNextClient;
     }
 
     public void Update()
@@ -23,7 +23,7 @@ public class WaitClientMode : IMode
 
     public void Deinit()
     {
-		_game.Door.DoorOpened -= CallNextClient;
+		_game.Door.Action -= CallNextClient;
     }
 
     private void CallNextClient()
