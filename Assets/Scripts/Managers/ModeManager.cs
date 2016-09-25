@@ -51,7 +51,7 @@ public class ModeManager : MonoBehaviour
         {
             var nextClient = ResourceManager.GetNextClient();
             if (nextClient == null)
-                return new EndMode(_uiManager.RestartPanel);
+                return new EndMode(_uiManager.RestartPanel, _uiManager.Diablo);
             return new ClientMode(nextClient, clientPrefab, _uiManager.OpeningDoor);
         }
         if (mode is ClientMode)
