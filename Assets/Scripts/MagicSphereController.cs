@@ -30,12 +30,6 @@ namespace ExtrasensoryGame.Assets.Scripts
             {
                 StartCoroutine(WaitAndDisable());
             }
-
-            //if (Input.GetKey(KeyCode.Space))
-            //{
-            //    background.sprite = null;
-            //    gameObject.SetActive(true);
-            //}
         }
 
         private IEnumerator WaitAndDisable()

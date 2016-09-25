@@ -58,7 +58,7 @@ public class ModeManager : MonoBehaviour
                     _uiManager.ClientPanel,
                     _uiManager.Cupboard);
             else
-				return new FoolMode(clientMode.Client, _uiManager.AstrologyPanel);
+				return new FoolMode(clientMode.Client, _uiManager.FoolTablePanel, _uiManager.AstrologyPanel);
         }
         if (mode is SpiritMode)
             return new WaitClientMode();

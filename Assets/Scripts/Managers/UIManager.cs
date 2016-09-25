@@ -10,6 +10,7 @@ namespace ExtrasensoryGame
         public GameObject RageSlider;
         public GameObject Cupboard;
         public GameObject AstrologyPanel;
+        public GameObject FoolTablePanel;
 
         private Slider rageSlider;
 

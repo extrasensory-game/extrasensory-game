@@ -1118,6 +1118,7 @@ MonoBehaviour:
   RageSlider: {fileID: 1656330948}
   Cupboard: {fileID: 1964904224}
   AstrologyPanel: {fileID: 1975453552}
+  FoolTablePanel: {fileID: 689062423}
 --- !u!4 &758067516
 Transform:
   m_ObjectHideFlags: 0
