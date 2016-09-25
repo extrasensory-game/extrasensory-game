@@ -50,5 +50,6 @@ public class ClientMode : IMode
     {
         var go = GameObject.Instantiate(spriteInstance);
         go.transform.parent = clientObject.transform;
+		go.transform.position = new Vector3 (go.transform.position.x, go.transform.position.y, spriteInstance.Layer);
     }
 }

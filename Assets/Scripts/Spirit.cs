@@ -5,7 +5,7 @@ namespace ExtrasensoryGame.Data
 {
     using SpiritDialogs;
 
-    public class Spirit : MonoBehaviour
+    public class Spirit
     {
         public event Action<float> RageChanged;
 

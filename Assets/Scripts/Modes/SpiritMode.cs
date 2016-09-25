@@ -33,6 +33,7 @@ public class SpiritMode : IMode
         _game = game;
 		_game.Player.CurrentClient = this.clientData;
 		_game.Door.DoorOpened += InitDialog;
+		ShowSpirit ();
     }
 
     public void Update()
