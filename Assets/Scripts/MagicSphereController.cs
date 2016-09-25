@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ExtrasensoryGame.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,30 +12,48 @@ namespace ExtrasensoryGame.Assets.Scripts
         private List<Toggle> toggles;
 
         [SerializeField]
+        private ResourceManager resourceManager;
+
+        [SerializeField]
         private SpriteRenderer background;
 
         [SerializeField]
         private Sprite gameBackgroundSprite;
 
+        private HoroscopePhrase[] phrases;
+        private float sum = 0;
         // Update is called once per frame
+        private void Start()
+        {
+            phrases= resourceManager.GetRandomHoroscopePhrases();
+            for (int i = 0; i < toggles.Count; i++)
+                toggles[i].GetComponentInChildren<Text>().text = phrases[i].Text;
+        }
+
         private void Update()
         {
+            sum = 0;
             int counter = 0;
-
-            foreach (var toggle in toggles)
+            for (int i = 0; i < toggles.Count; i++)
             {
-                if (toggle.isOn)
+                if (toggles[i].isOn)
+                {
                     counter++;
+                    sum += phrases[i].RageModifierValue;
+                }
             }
+
             if (counter == 3)
             {
                 StartCoroutine(WaitAndDisable());
+                
             }
         }
 
         private IEnumerator WaitAndDisable()
         {
             yield return new WaitForSeconds(0.1f);
+            Debug.Log("Сумма: " + sum);
             gameObject.SetActive(false);
         }
     }

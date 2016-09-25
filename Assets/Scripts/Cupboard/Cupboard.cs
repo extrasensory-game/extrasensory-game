@@ -1,4 +1,5 @@
-﻿using ExtrasensoryGame.Data;
+﻿using System;
+using ExtrasensoryGame.Data;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,6 +7,8 @@ namespace ExtrasensoryGame.Cupboard
 {
     public class Cupboard : MonoBehaviour
     {
+        public event Action<ItemData> ItemClicked;
+
         [SerializeField]
         private CupboardPanel _cupboardPanel;
 
@@ -17,9 +20,12 @@ namespace ExtrasensoryGame.Cupboard
             {
                 _cupboardPanel.ShowPanel(Game.Instance.Player.Items, data =>
                 {
+                    if (ItemClicked != null)
+                        ItemClicked(data);
+
                     Debug.Log(string.Format("{0}, {1}", data.Name, data.Id));
                 });
-            }
+            }            
         }
     }
 }

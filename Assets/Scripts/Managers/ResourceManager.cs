@@ -12,6 +12,7 @@ namespace ExtrasensoryGame
         private SpiritData[] _spirits;
         private ItemData[] _items;
         private ClientData[] _clients;
+        private HoroscopePhrase[] _horoscopePhrases;
 
         [SerializeField]
         private GameObject[] _spiritPrefabs;
@@ -33,6 +34,7 @@ namespace ExtrasensoryGame
             LoadSpirits();
             LoadItems();
             LoadClients();
+            LoadHoroscopePhrases();
         }
 
         private void LoadItems()
@@ -50,6 +52,11 @@ namespace ExtrasensoryGame
             _spiritDialogs = DataParser.LoadSpiritDialogs();
             foreach (var dialog in _spiritDialogs)
                 dialog.InitPhrases(_spiritPhrases);
+        }
+
+        private void LoadHoroscopePhrases()
+        {
+            this._horoscopePhrases = DataParser.LoadHoroscopePhrases();
         }
 
         public Client GetNextClient()
@@ -125,6 +132,16 @@ namespace ExtrasensoryGame
                 LoadItems();
 
             return _items.Where(i => i.Type == ItemData.ItemDataType.medCheat).ToArray();
+        }
+
+        private System.Random random = new System.Random();
+        public HoroscopePhrase[] GetRandomHoroscopePhrases()
+        {
+            const int phrasesCount = 7;
+            if (_horoscopePhrases.Length < phrasesCount)
+                return _horoscopePhrases.OrderBy(ph => random.Next()).ToArray();
+
+            return _horoscopePhrases.OrderBy(ph => random.Next()).Take(phrasesCount).ToArray();
         }
     }
 }

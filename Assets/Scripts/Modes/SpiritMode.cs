@@ -1,4 +1,5 @@
-﻿using ExtrasensoryGame;
+﻿using System;
+using ExtrasensoryGame;
 using ExtrasensoryGame.Data;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ using ExtrasensoryGame.Data.SpiritDialogs;
 
 public class SpiritMode : IMode
 {
-	private bool is_finished = false;
+    private bool is_finished = false;
     private GameObject _spiritObject;
     
 	private readonly Client clientData;
@@ -24,6 +25,7 @@ public class SpiritMode : IMode
 
 	// Хранит инфу о рассположении инфы на объекте клиента(характеристики)
 	private SpiritDialog dialog;
+    private ItemData _selectedItem;
 
 	public SpiritMode(Client client, Spirit spirit, GameObject clientPanel, GameObject cupboard, GameObject rageSlider)
     {
@@ -34,14 +36,29 @@ public class SpiritMode : IMode
         this.rageSlider = rageSlider.GetComponent<Slider>();
     }
 
+    public void SpiritClicked()
+    {
+        if (this._selectedItem != null)
+        {
+            ApplyItem();
+        }
+        else
+        {
+            InitDialog();
+        }
+    }
+
 	public void InitDialog()
 	{
 		dialog = spirit.GetNextDialog ();
 		if (dialog == null) {
 			is_finished = true;
 			return;
-		}
-		_game.SpiritDialogInstance.gameObject.SetActive(true);
+        }
+
+        this.clientData.ClientInstance.Action -= SpiritClicked;
+
+        _game.SpiritDialogInstance.gameObject.SetActive(true);
 		_game.SpiritDialogInstance.OnAnswerAction += CheckAnswer;
 		_game.SpiritDialogInstance.Answer1Text.text = dialog.Pharases [0].Speach;
 		_game.SpiritDialogInstance.Answer2Text.text = dialog.Pharases [1].Speach;
@@ -53,18 +70,30 @@ public class SpiritMode : IMode
 	{
 		_game.SpiritDialogInstance.OnAnswerAction -= CheckAnswer;
 		_game.SpiritDialogInstance.gameObject.SetActive(false);
-	}
+        this.clientData.ClientInstance.Action += SpiritClicked;
+    }
 
 	public void Init(Game game)
     {
         Debug.Log("Init SpiritMode");
         _game = game;
 		_game.Player.CurrentClient = this.clientData;  
-		this.clientData.ClientInstance.Action += InitDialog;
+		this.clientData.ClientInstance.Action += SpiritClicked;
 		ShowSpirit ();
         cupboard.gameObject.SetActive(true);
         this.rageSlider.gameObject.SetActive(true);
-        this.spirit.RageChanged += RageChanged;        
+
+        this.spirit.RageChanged += RageChanged;
+        this.cupboard.ItemClicked += CupboardItemClicked;
+
+        RageChanged(0f);
+        this.rageSlider.enabled = false;
+    }
+
+    private void ApplyItem()
+    {
+        this.spirit.ApplyItem(this._selectedItem);
+        this._selectedItem = null;
     }
 
     private void RageChanged(float rageValue)
@@ -88,22 +117,33 @@ public class SpiritMode : IMode
 		if (this.clientData.ClientInstance != null)
 			GameObject.Destroy(this.clientData.ClientInstance.gameObject);
 
-		this.clientData.ClientInstance.Action -= InitDialog;
+		this.clientData.ClientInstance.Action -= SpiritClicked;
         cupboard.gameObject.SetActive(false);
         rageSlider.gameObject.SetActive(false);
+
         spirit.RageChanged -= RageChanged;
+        this.cupboard.ItemClicked -= CupboardItemClicked;
     }
 
-	private void UseEye()
+    private void CupboardItemClicked(ItemData itemData)
+    {
+        this._selectedItem = itemData;
+    }
+
+    public void GhostClicked()
+    {
+        if (this._selectedItem != null)
+        {
+            this.spirit.ApplyItem(this._selectedItem);
+        }
+    }
+
+    private void UseEye()
 	{
 	}
 
     private void ShowSpirit()
     {
         _spiritObject = GameObject.Instantiate(this.spirit.Prefab);
-    }
-
-    public void UseItem(ItemData item)
-    {
     }
 }
