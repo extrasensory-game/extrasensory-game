@@ -27,7 +27,7 @@ namespace ExtrasensoryGame
             if (GameObject.FindObjectsOfType<Game>().Count() > 1)
                 GameObject.Destroy(this);
 
-            this.Player.Items = resourceManager.GetItems();
+            this.Player.Items = resourceManager.LoadArtifactItems();
         }
 
         private void Start()

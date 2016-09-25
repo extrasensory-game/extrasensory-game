@@ -76,6 +76,8 @@ namespace ExtrasensoryGame
 
         private void LoadSpirits()
         {
+            if(_spiritPrefabs.Length == 0)
+                return;
             var spirits = DataParser.LoadSpiritsData();
 
             _spirits = new SpiritData[spirits.Length];
@@ -109,12 +111,20 @@ namespace ExtrasensoryGame
             }
         }
 
-        public ItemData[] GetItems()
+        public ItemData[] LoadArtifactItems()
         {
-            if (_items == null)
+            if(_items == null)
                 LoadItems();
 
-            return _items;
+            return _items.Where(i => i.Type == ItemData.ItemDataType.artifact).ToArray();
+        }
+
+        public ItemData[] LoadMedCheatsItems()
+        {
+            if(_items == null)
+                LoadItems();
+
+            return _items.Where(i => i.Type == ItemData.ItemDataType.medCheat).ToArray();
         }
     }
 }
