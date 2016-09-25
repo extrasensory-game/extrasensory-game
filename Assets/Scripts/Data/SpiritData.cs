@@ -39,7 +39,7 @@ namespace ExtrasensoryGame.Data
         
         public SpiritDialog GetNextDialog()
         {
-            if (_nextDialogIndex + 1 < this.Dialogs.Length)
+            if (_nextDialogIndex < this.Dialogs.Length)
                 return this.Dialogs[_nextDialogIndex++];
 
             return null;
