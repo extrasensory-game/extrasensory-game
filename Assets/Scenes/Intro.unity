@@ -751,7 +751,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Deal !
+  m_Text: "\u041F\u043E\u0434\u043F\u0438\u0441\u0430\u0442\u044C!"
 --- !u!222 &963767284
 CanvasRenderer:
   m_ObjectHideFlags: 0
