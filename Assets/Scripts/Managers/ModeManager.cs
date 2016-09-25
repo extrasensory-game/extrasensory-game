@@ -46,7 +46,12 @@ public class ModeManager : MonoBehaviour
     private IMode GetNextMode(IMode mode)
     {
         if (mode is WaitClientMode)
-            return new ClientMode(ResourceManager.GetNextClient(), clientPrefab, _uiManager.OpeningDoor);
+        {
+            var nextClient = ResourceManager.GetNextClient();
+            if (nextClient == null)
+                return new EndMode(_uiManager.RestartPanel);
+            return new ClientMode(nextClient, clientPrefab, _uiManager.OpeningDoor);
+        }
         if (mode is ClientMode)
         {
             var clientMode = (ClientMode)mode;

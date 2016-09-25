@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System;
-using System.Linq;
 
 
 namespace ExtrasensoryGame
@@ -24,16 +22,12 @@ namespace ExtrasensoryGame
 
         private void Awake()
         {
-            if (GameObject.FindObjectsOfType<Game>().Count() > 1)
-                GameObject.Destroy(this);
-
             this.Player.Items = resourceManager.LoadArtifactItems();
         }
 
         private void Start()
         {
-            _instance = this;
-            GameObject.DontDestroyOnLoad(gameObject);            
+            _instance = this;       
         }
 
         public void UseEye()
