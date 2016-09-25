@@ -20,6 +20,7 @@ public class ClientMode : IMode
         Debug.Log("Init ClientMode");
         _game = game;
         var clientObject = GameObject.Instantiate(clientPrefab);
+		Client.ClientInstance = clientObject.GetComponent<ClientInstance> ();
         foreach (var sprite in this.Client.CharacterSprites)
             InstantiateSprite(clientObject, sprite);
         _game.EyeUsing += EyeUsing;
@@ -41,7 +42,8 @@ public class ClientMode : IMode
 
     private void EyeUsing()
     {
-        _eyeUsed = true;
+		_eyeUsed = true;
+		_game.Player.MagicPower -= 20;
     }
 
     private void InstantiateSprite(GameObject clientObject, SpriteInstance spriteInstance)

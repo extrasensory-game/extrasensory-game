@@ -11,6 +11,7 @@ namespace ExtrasensoryGame
 		public SpiritData SpiritData;
         public ClientData ClientData;
 
+		public ClientInstance ClientInstance;
         public int confidience = 0;
 		public EyeStatus EyeStatus;
 		public bool IsHavingSpirit { get; set; }

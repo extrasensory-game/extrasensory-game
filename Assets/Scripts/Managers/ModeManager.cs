@@ -55,7 +55,7 @@ public class ModeManager : MonoBehaviour
                     ResourceManager.GetRandomSpirit(),
                     _uiManager.ClientPanel);
             else
-                return new FoolMode(ResourceManager.GetNextClient());
+				return new FoolMode(clientMode.Client);
         }
         if (mode is SpiritMode)
             return new WaitClientMode(_uiManager.NextClientPanel);
