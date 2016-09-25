@@ -11,6 +11,8 @@ public class ModeManager : MonoBehaviour
 	private UIManager _uiManager;
 	[SerializeField]
 	private Game _game;
+	[SerializeField]
+	private GameObject clientPrefab;
 
 
 
@@ -44,8 +46,8 @@ public class ModeManager : MonoBehaviour
     private IMode GetNextMode(IMode mode)
     {
         if (mode is WaitClientMode)
-            return new SpiritMode(ClientGenerator.GetClient(), ResourceManager.GetRandomSpirit(),
-                _uiManager.ClientPanel);
+            return new SpiritMode(ResourceManager.GetNextClient(), ResourceManager.GetRandomSpirit(),
+				_uiManager.ClientPanel, clientPrefab);
         else if (mode is SpiritMode)
 			return new WaitClientMode(_uiManager.NextClientPanel);
         throw new NotImplementedException();

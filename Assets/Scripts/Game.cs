@@ -8,7 +8,6 @@ namespace ExtrasensoryGame
 		public Player Player = new Player();
 		public GameObject Client;
 		public ClientGenerator clientGenerator;
-		Client clientInstance;
 		public Door Door;
 		// Use this for initialization
 		void Start () {

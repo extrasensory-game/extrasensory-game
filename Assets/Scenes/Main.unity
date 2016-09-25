@@ -243,6 +243,7 @@ MonoBehaviour:
   - {fileID: 1000010650585700, guid: 995fda0a5bd0ca94484de369f9ecdd3e, type: 2}
   - {fileID: 1000010650585700, guid: 995fda0a5bd0ca94484de369f9ecdd3e, type: 2}
   - {fileID: 1000010650585700, guid: 995fda0a5bd0ca94484de369f9ecdd3e, type: 2}
+  _clientGenerator: {fileID: 1488432478}
 --- !u!4 &38817185
 Transform:
   m_ObjectHideFlags: 0
@@ -255,7 +256,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 721990205}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &54531347
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,6 +460,8 @@ MonoBehaviour:
   ResourceManager: {fileID: 38817184}
   _uiManager: {fileID: 758067515}
   _game: {fileID: 1431457941}
+  clientPrefab: {fileID: 1000011194805682, guid: fd11b0d3f2b2c4a40a386bab3bbc4097,
+    type: 2}
 --- !u!4 &343785804
 Transform:
   m_ObjectHideFlags: 0
@@ -851,8 +854,8 @@ Transform:
   - {fileID: 1541251133}
   - {fileID: 343785804}
   - {fileID: 758067516}
-  - {fileID: 38817185}
   - {fileID: 1488432479}
+  - {fileID: 38817185}
   - {fileID: 1431457942}
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -1718,7 +1721,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 721990205}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1 &1541251132
 GameObject:
   m_ObjectHideFlags: 0

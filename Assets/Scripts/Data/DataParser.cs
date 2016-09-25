@@ -13,6 +13,7 @@ namespace ExtrasensoryGame.Data
         private const string SpiritPhrasesFile = "SpiritPhrases";
         private const string SpiritFile = "Spirit";
         private const string ItemsFileName = "Items";
+        private const string ClientsFileName = "Clients";
 
         public static SpiritData[] LoadSpiritsData()
         {
@@ -37,6 +38,11 @@ namespace ExtrasensoryGame.Data
         public static ItemData[] LoadItems()
         {
             return LoadTexts(ItemsFileName, () => new ItemData()).Select(d => (ItemData)d).ToArray();
+        }
+
+        public static ClientData[] LoadClients()
+        {
+            return LoadTexts(ClientsFileName, () => new ClientData()).Select(d => (ClientData)d).ToArray();
         }
 
         private static LoadabelObject[] LoadTexts(string fileName, Func<LoadabelObject> getObjetInstance)

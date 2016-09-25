@@ -9,8 +9,9 @@ namespace ExtrasensoryGame
 
 		public List<SpriteInstance> CharacterSprites = new List<SpriteInstance>();
 		public SpiritData SpiritData;
+        public ClientData ClientData;
 
-		public int confidience = 0;
+        public int confidience = 0;
 		public EyeStatus EyeStatus;
 		public bool IsHavingSpirit { get; set; }
 
