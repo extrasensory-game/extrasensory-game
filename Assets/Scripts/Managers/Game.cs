@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using System.Collections;
 using System;
+using System.Linq;
 
 
 namespace ExtrasensoryGame
@@ -12,6 +14,7 @@ namespace ExtrasensoryGame
         public ProgressBar.ProgressBarBehaviour MagicPowerBar;
 		public PlayerData Player = new PlayerData();
 		public GameObject Client;
+		public GameObject CapboardPanel;
 		public ClientGenerator clientGenerator;
 		public ActiveObject Door;
 		public Action EyeUsing;
@@ -22,12 +25,16 @@ namespace ExtrasensoryGame
 
         private void Awake()
         {
+            if (GameObject.FindObjectsOfType<Game>().Count() > 1)
+                GameObject.Destroy(this);
+
             this.Player.Items = resourceManager.LoadArtifactItems();
         }
 
         private void Start()
         {
-            _instance = this;       
+            _instance = this;
+            GameObject.DontDestroyOnLoad(gameObject);            
         }
 
         public void UseEye()

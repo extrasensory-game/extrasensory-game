@@ -27,6 +27,7 @@ public class SpiritMode : IMode
 	// Хранит инфу о рассположении инфы на объекте клиента(характеристики)
 	private SpiritDialog dialog;
     private ItemData _selectedItem;
+	private bool isDialogAvailable = true;
 
 	public SpiritMode(Client client, Spirit spirit, GameObject clientPanel, GameObject cupboard, GameObject rageSlider,
         GameObject extrasensoryEffect)
@@ -45,12 +46,16 @@ public class SpiritMode : IMode
         {
             ApplyItem();
         }
-        else
+		else if(!_game.CapboardPanel.activeSelf)
         {
             InitDialog();
         }
     }
 
+	public void Update()
+	{
+		Debug.Log (_game.CapboardPanel.activeSelf);
+	}
 	public void InitDialog()
 	{
 		dialog = spirit.GetNextDialog ();
@@ -71,6 +76,7 @@ public class SpiritMode : IMode
 
 	private void CheckAnswer(int i)
 	{
+
 		_game.SpiritDialogInstance.OnAnswerAction -= CheckAnswer;
 		_game.SpiritDialogInstance.gameObject.SetActive(false);
 		spirit.SelectPhrase (dialog.Pharases [i-1]);
@@ -98,6 +104,7 @@ public class SpiritMode : IMode
 
     private void ApplyItem()
     {
+
         this.spirit.ApplyItem(this._selectedItem);
         this._selectedItem = null;
     }
@@ -105,10 +112,6 @@ public class SpiritMode : IMode
     private void RageChanged(float rageValue)
     {
         this.rageSlider.value = (rageValue + 100f) / 200f;
-    }
-
-    public void Update()
-    {
     }
 
     public bool IsFinished()
