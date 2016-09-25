@@ -45,7 +45,6 @@ public class ModeManager : MonoBehaviour
 
     private IMode GetNextMode(IMode mode)
     {
-		mode.Deinit ();
         if (mode is WaitClientMode)
             return new ClientMode(ResourceManager.GetNextClient(), clientPrefab);
         if (mode is ClientMode)
