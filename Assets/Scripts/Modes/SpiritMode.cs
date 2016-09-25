@@ -14,6 +14,7 @@ public class SpiritMode : IMode
     private readonly Spirit spirit;
 	private readonly GameObject clientPanel;
     private readonly Cupboard cupboard;
+    private readonly Slider rageSlider;
 
     private Game _game;
 
@@ -22,17 +23,18 @@ public class SpiritMode : IMode
 	// Хранит инфу о рассположении инфы на объекте клиента(характеристики)
 	private ClientInstance clientInstance;
 
-	public SpiritMode(Client client, Spirit spirit, GameObject clientPanel, GameObject cupboard)
+	public SpiritMode(Client client, Spirit spirit, GameObject clientPanel, GameObject cupboard, GameObject rageSlider)
     {
         this.clientData = client;
 		this.spirit = spirit;
 		this.clientPanel = clientPanel;
         this.cupboard = cupboard.GetComponent<Cupboard>();
+        this.rageSlider = rageSlider.GetComponent<Slider>();
     }
 
 	public void InitDialog()
 	{
-		_game.SpiritDialogInstance.gameObject.SetActive(true);
+		_game.SpiritDialogInstance.gameObject.SetActive(true);        
 	}
 
 	public void Init(Game game)
@@ -44,6 +46,13 @@ public class SpiritMode : IMode
 		this.clientData.ClientInstance.Action += InitDialog;
 		ShowSpirit ();
         cupboard.gameObject.SetActive(true);
+        this.rageSlider.gameObject.SetActive(true);
+        this.spirit.RageChanged += RageChanged;        
+    }
+
+    private void RageChanged(float rageValue)
+    {
+        this.rageSlider.value = (rageValue + 100f) / 200f;
     }
 
     public void Update()
@@ -63,6 +72,8 @@ public class SpiritMode : IMode
 
 		this.clientData.ClientInstance.Action -= InitDialog;
         cupboard.gameObject.SetActive(false);
+        rageSlider.gameObject.SetActive(false);
+        spirit.RageChanged -= RageChanged;
     }
 
 	private void UseEye()
