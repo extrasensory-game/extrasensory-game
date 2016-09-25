@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ExtrasensoryGame.Data;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace ExtrasensoryGame.Shop
@@ -20,8 +21,8 @@ namespace ExtrasensoryGame.Shop
 
         private void Start()
         {
-            _artifactsPage.Init(_resourceManager.LoadArtifactItems());
-            _medCheatsPage.Init(_resourceManager.LoadMedCheatsItems());
+            _artifactsPage.Init(_resourceManager.LoadArtifactItems(), ClickHandler);
+            _medCheatsPage.Init(_resourceManager.LoadMedCheatsItems(), ClickHandler);
             Show();
         }
 
@@ -82,6 +83,11 @@ namespace ExtrasensoryGame.Shop
                 _promoCodePage.Show();
             else
                 _promoCodePage.Close();
+        }
+
+        public void ClickHandler(ItemData item)
+        {
+            Game.Instance.Player.AddItem(item);
         }
     }
 }

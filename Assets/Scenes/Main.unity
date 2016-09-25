@@ -1142,7 +1142,7 @@ Transform:
   - {fileID: 1554535311}
   - {fileID: 1586730911}
   m_Father: {fileID: 1151366256}
-  m_RootOrder: 5
+  m_RootOrder: 7
 --- !u!212 &628736269
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1171,7 +1171,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 193a269232a55354daa7d4e7b0eb0e29, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1753,9 +1753,9 @@ Transform:
   - {fileID: 2034140675}
   - {fileID: 1737792862}
   - {fileID: 1233701787}
-  - {fileID: 628736268}
   - {fileID: 1641585123}
   - {fileID: 1594065661}
+  - {fileID: 628736268}
   - {fileID: 531912923}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -2678,7 +2678,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1151366256}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!212 &1594065662
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2771,7 +2771,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1151366256}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &1656330948
 GameObject:
   m_ObjectHideFlags: 0

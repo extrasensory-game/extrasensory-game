@@ -1,4 +1,5 @@
-﻿using ExtrasensoryGame.Data;
+﻿using System;
+using ExtrasensoryGame.Data;
 using UnityEngine;
 
 namespace ExtrasensoryGame.Shop
@@ -11,21 +12,16 @@ namespace ExtrasensoryGame.Shop
         private ShopItem[] _items;
 
 
-        public void Init(ItemData[] loadArtifactItems)
+        public void Init(ItemData[] loadArtifactItems, Action<ItemData> callback)
         {
             _items = new ShopItem[loadArtifactItems.Length];
 
             for(int i = 0; i < _items.Length; i++)
             {
                 _items[i] = Instantiate(_prefab);
-                _items[i].Init(loadArtifactItems[i], ClickHandler);
+                _items[i].Init(loadArtifactItems[i], callback);
                 _items[i].transform.SetParent(transform);
             }
-        }
-
-        public void ClickHandler(ItemData item)
-        {
-            Debug.Log("Buy item");
         }
     }
 }
