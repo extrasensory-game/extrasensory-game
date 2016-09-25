@@ -1,33 +1,46 @@
-﻿using ExtrasensoryGame;
+﻿using System;
+using System.Collections;
+using ExtrasensoryGame;
 using UnityEngine;
 
 public class ClientMode : IMode
 {
     private Game _game;
-    private readonly GameObject clientPrefab;
+    private readonly GameObject _clientPrefab;
+    private readonly GameObject _openingDoor;
+
+    private DateTime _initTime;
+    private bool _clientIsHere = false;
     private bool _eyeUsed = false;
 
     public Client Client;
 
-    public ClientMode(Client client, GameObject clientPrefab)
+    public ClientMode(Client client, GameObject clientPrefab, GameObject openingDoor)
     {
         this.Client = client;
-        this.clientPrefab = clientPrefab;
+        this._clientPrefab = clientPrefab;
+        this._openingDoor = openingDoor;
     }
 
     public void Init(Game game)
     {
         Debug.Log("Init ClientMode");
         _game = game;
-        var clientObject = GameObject.Instantiate(clientPrefab);
-		Client.ClientInstance = clientObject.GetComponent<ClientInstance> ();
-        foreach (var sprite in this.Client.CharacterSprites)
-            InstantiateSprite(clientObject, sprite);
-        _game.EyeUsing += EyeUsing;
+        _initTime = DateTime.Now;
+        _openingDoor.SetActive(true);
     }
 
     public void Update()
     {
+        if (!_clientIsHere && DateTime.Now - _initTime > TimeSpan.FromSeconds(0.5))
+        {
+            this._openingDoor.SetActive(false);
+            var clientObject = GameObject.Instantiate(_clientPrefab);
+            Client.ClientInstance = clientObject.GetComponent<ClientInstance>();
+            foreach (var sprite in this.Client.CharacterSprites)
+                InstantiateSprite(clientObject, sprite);
+            _game.EyeUsing += EyeUsing;
+        }
     }
 
     public bool IsFinished()

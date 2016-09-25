@@ -10,6 +10,8 @@ namespace ExtrasensoryGame
         public GameObject RageSlider;
         public GameObject Cupboard;
 
+        public GameObject OpeningDoor;
+
         public ClickableCollider GlobeCollider;
         public GameObject AstrologyPanel;
 
