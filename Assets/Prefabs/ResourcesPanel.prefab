@@ -438,6 +438,7 @@ MonoBehaviour:
   _spirits: {fileID: 114000012503613484}
   _hum: {fileID: 114000012153768730}
   _quack: {fileID: 114000013893604360}
+  _shopPanel: {fileID: 0}
 --- !u!114 &114000013893604360
 MonoBehaviour:
   m_ObjectHideFlags: 1

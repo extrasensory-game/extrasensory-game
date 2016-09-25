@@ -616,13 +616,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spiritPrefabs:
   - {fileID: 1000010650585700, guid: 995fda0a5bd0ca94484de369f9ecdd3e, type: 2}
+  - {fileID: 1000012105060428, guid: 7d9bd902311c12a43aa4019fef0d02fa, type: 2}
+  - {fileID: 1000012730714606, guid: 2e760b1d6e19b7a418faa5d80e82372a, type: 2}
   - {fileID: 1000010650585700, guid: 995fda0a5bd0ca94484de369f9ecdd3e, type: 2}
-  - {fileID: 1000010650585700, guid: 995fda0a5bd0ca94484de369f9ecdd3e, type: 2}
-  - {fileID: 1000010650585700, guid: 995fda0a5bd0ca94484de369f9ecdd3e, type: 2}
-  - {fileID: 1000010650585700, guid: 995fda0a5bd0ca94484de369f9ecdd3e, type: 2}
-  - {fileID: 1000010650585700, guid: 995fda0a5bd0ca94484de369f9ecdd3e, type: 2}
-  - {fileID: 1000010650585700, guid: 995fda0a5bd0ca94484de369f9ecdd3e, type: 2}
-  - {fileID: 1000010650585700, guid: 995fda0a5bd0ca94484de369f9ecdd3e, type: 2}
+  - {fileID: 1000012105060428, guid: 7d9bd902311c12a43aa4019fef0d02fa, type: 2}
+  - {fileID: 1000012730714606, guid: 2e760b1d6e19b7a418faa5d80e82372a, type: 2}
+  - {fileID: 1000012105060428, guid: 7d9bd902311c12a43aa4019fef0d02fa, type: 2}
+  - {fileID: 1000012730714606, guid: 2e760b1d6e19b7a418faa5d80e82372a, type: 2}
   - {fileID: 1000010650585700, guid: 995fda0a5bd0ca94484de369f9ecdd3e, type: 2}
   - {fileID: 1000010650585700, guid: 995fda0a5bd0ca94484de369f9ecdd3e, type: 2}
   - {fileID: 1000010650585700, guid: 995fda0a5bd0ca94484de369f9ecdd3e, type: 2}
