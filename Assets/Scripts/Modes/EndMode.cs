@@ -7,17 +7,20 @@ using ExtrasensoryGame;
 public class EndMode : IMode
 {
 	private readonly GameObject restartPanel;
-	private Game _game;
+    private readonly GameObject diabloPrefab;
+    private Game _game;
 
-    public EndMode(GameObject restartPanel)
+    public EndMode(GameObject restartPanel, GameObject diabloPrefab)
     {
         this.restartPanel = restartPanel;
+        this.diabloPrefab = diabloPrefab;
     }
     
 	public void Init(Game game)
 	{
 		_game = game;
-        this.restartPanel.SetActive(true);
+	    GameObject.Instantiate(this.diabloPrefab);
+        //this.restartPanel.SetActive(true);
         this.restartPanel.GetComponentInChildren<Button>().onClick.AddListener(Restart);
     }
 
@@ -38,6 +41,6 @@ public class EndMode : IMode
     private void Restart()
     {
         Debug.Log("restart");
-        SceneManager.LoadScene("Intro");
+        SceneManager.LoadScene("MainMenu");
     }
 }

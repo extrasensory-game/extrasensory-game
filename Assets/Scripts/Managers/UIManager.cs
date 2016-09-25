@@ -17,6 +17,8 @@ namespace ExtrasensoryGame
         public ClickableCollider GlobeCollider;
         public GameObject AstrologyPanel;
 
+        public GameObject Diablo;
+
         private Slider rageSlider;
 
         private void Start()
