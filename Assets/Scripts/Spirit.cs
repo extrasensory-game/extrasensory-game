@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace ExtrasensoryGame.Data
 {
@@ -6,6 +7,8 @@ namespace ExtrasensoryGame.Data
 
     public class Spirit : MonoBehaviour
     {
+        public event Action<float> RageChanged;
+
         private SpiritData _spiritData;
 
         public GameObject Prefab { get { return this._spiritData.Prefab; } }
@@ -37,7 +40,8 @@ namespace ExtrasensoryGame.Data
 
         private void UpdateRageBar()
         {
-            // TODO.
+            if (RageChanged != null)
+                this.RageChanged(this._spiritData.Rage);
         }
 
         private SpiritState prevSpiritState = SpiritState.Neutral;
