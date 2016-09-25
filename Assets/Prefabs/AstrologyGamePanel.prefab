@@ -461,7 +461,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000013872740492
 GameObject:
   m_ObjectHideFlags: 1
@@ -1401,8 +1401,9 @@ MonoBehaviour:
   - {fileID: 114000011811010048}
   resourceManager: {fileID: 0}
   background: {fileID: 0}
-  gameBackgroundSprite: {fileID: 21300000, guid: 4728371e228029549ad51ef4dd622a38,
+  gameBackgroundSprite: {fileID: 21300000, guid: a70af0ad2d431564dbebd328ed866a8e,
     type: 3}
+  table: {fileID: 0}
 --- !u!114 &114000013970882722
 MonoBehaviour:
   m_ObjectHideFlags: 1
