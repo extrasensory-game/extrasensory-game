@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ExtrasensoryGame
 {
-	public class Door:MonoBehaviour
+	public class ActiveObject:MonoBehaviour
 	{
 		public Action DoorOpened;
 
