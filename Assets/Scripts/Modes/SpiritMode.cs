@@ -10,11 +10,13 @@ public class SpiritMode : IMode
     private int _framesCount = 0;
 	private ClientData clientData;
     private SpiritData spiritData;
-    private GameObject clientObject;
 	private readonly GameObject clientPanel;
 	private Game _game;
+
+	//Хранит инфу о рассположении инфы на объекте клиента(характеристики)
+	private ClientInstance clientInstantiate;
+	private GameObject clientObject;
 	private GameObject clientPrefab;
-	private ClientInstantiate clientInstantiate;
 
 	public SpiritMode(ClientData client, SpiritData spiritData, GameObject clientPanel, GameObject clientPrefab)
     {
@@ -28,7 +30,7 @@ public class SpiritMode : IMode
 	{
 		_game = game;
 		this.clientObject = GameObject.Instantiate (clientPrefab);
-		clientInstantiate = this.clientObject.GetComponent<ClientInstantiate> ();
+		clientInstantiate = this.clientObject.GetComponent<ClientInstance> ();
         foreach (var sprite in clientData.CharacterSprites)
         {
             InstantiateSprite(sprite);

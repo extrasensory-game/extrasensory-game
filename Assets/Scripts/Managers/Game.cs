@@ -13,9 +13,8 @@ namespace ExtrasensoryGame
 		public ClientGenerator clientGenerator;
 		public Door Door;
 		public Action EyeUsing;
-		// Use this for initialization
-		void Start () {
-		}
+		public SpiritDialogPanel SpiritDialogInstance;
+
 			
 		public void UseEye()
 		{

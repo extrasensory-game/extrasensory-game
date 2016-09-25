@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ClientInstantiate : MonoBehaviour {
+public class ClientInstance : MonoBehaviour {
 
 	public SpriteRenderer Characteristic1;
 	public SpriteRenderer Characteristic2;
