@@ -1399,6 +1399,7 @@ MonoBehaviour:
   - {fileID: 114000011141091264}
   - {fileID: 114000010902069990}
   - {fileID: 114000011811010048}
+  resourceManager: {fileID: 0}
   background: {fileID: 0}
   gameBackgroundSprite: {fileID: 21300000, guid: 4728371e228029549ad51ef4dd622a38,
     type: 3}
