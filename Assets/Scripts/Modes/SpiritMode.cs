@@ -8,7 +8,7 @@ public class SpiritMode : IMode
     private GameObject _spiritObject;
     
 	private Client clientData;
-    private SpiritData spiritData;
+    private Spirit spirit;
 	private readonly GameObject clientPanel;
 	private Game _game;
 
@@ -17,10 +17,10 @@ public class SpiritMode : IMode
 	private GameObject clientObject;
 	private GameObject clientPrefab;
 
-	public SpiritMode(Client client, SpiritData spiritData, GameObject clientPanel, GameObject clientPrefab)
+	public SpiritMode(Client client, Spirit spirit, GameObject clientPanel, GameObject clientPrefab)
     {
         this.clientData = client;
-		this.spiritData = spiritData;
+		this.spirit = spirit;
 		this.clientPanel = clientPanel;
 		this.clientPrefab = clientPrefab;
     }
@@ -103,6 +103,6 @@ public class SpiritMode : IMode
 
     private void ShowSpirit()
     {
-        _spiritObject = GameObject.Instantiate(this.spiritData.Prefab);
+        _spiritObject = GameObject.Instantiate(this.spirit.Prefab);
     }
 }

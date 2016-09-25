@@ -8,6 +8,8 @@ namespace ExtrasensoryGame.Data
     {
         private SpiritData _spiritData;
 
+        public GameObject Prefab { get { return this._spiritData.Prefab; } }
+
         public void Initialize(SpiritData spiritData)
         {
             this._spiritData = spiritData;

@@ -67,9 +67,11 @@ namespace ExtrasensoryGame
             return this._spirits.First(spirit => spirit.Id == spiritId).GetNextDialog();
         }
 
-        public SpiritData GetRandomSpirit()
+        public Spirit GetRandomSpirit()
         {
-            return _spirits[Random.Range(0, _spirits.Length)];
+            var spirit = new Spirit();
+            spirit.Initialize(_spirits[Random.Range(0, _spirits.Length)]);
+            return spirit;
         }
 
         private void LoadSpirits()
