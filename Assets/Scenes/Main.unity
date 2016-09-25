@@ -135,7 +135,7 @@ Prefab:
     - target: {fileID: 224000010828279532, guid: 18c5c6fa31f417c4cb36f3c8df463979,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224000010828279532, guid: 18c5c6fa31f417c4cb36f3c8df463979,
         type: 2}
@@ -253,7 +253,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012191356236, guid: 253c13193cd702f47ad369c040a6ca7e, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114000013831565528, guid: 253c13193cd702f47ad369c040a6ca7e,
         type: 2}
@@ -778,6 +778,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013199630108, guid: ab3a51d1b96e8b14fb1e1ecb933f97ac,
+        type: 2}
+      propertyPath: _shopPanel
+      value: 
+      objectReference: {fileID: 1449339339}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab3a51d1b96e8b14fb1e1ecb933f97ac, type: 2}
   m_IsPrefabParent: 0
@@ -1077,7 +1082,7 @@ Prefab:
     - target: {fileID: 224000013002400068, guid: 39f88fce18f50a640abe86757f238d54,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224000013002400068, guid: 39f88fce18f50a640abe86757f238d54,
         type: 2}
@@ -1757,11 +1762,11 @@ RectTransform:
   - {fileID: 138921615}
   - {fileID: 54531348}
   - {fileID: 166506865}
+  - {fileID: 1656330949}
   - {fileID: 8014099}
   - {fileID: 12357201}
   - {fileID: 1064831087}
   - {fileID: 1497602671}
-  - {fileID: 1656330949}
   - {fileID: 1055350529}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -2364,6 +2369,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 721990205}
   m_RootOrder: 5
+--- !u!114 &1449339339 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000011633189086, guid: 39f88fce18f50a640abe86757f238d54,
+    type: 2}
+  m_PrefabInternal: {fileID: 483551798}
+  m_Script: {fileID: 11500000, guid: d85cc303c09e26d4eb2d207e8ca07b8f, type: 3}
 --- !u!114 &1468391751 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114000012218303712, guid: 2daca1cc49767054a90e70453fb6d72d,
@@ -2514,7 +2525,7 @@ Prefab:
     - target: {fileID: 224000010500339594, guid: 95a7c6c82d340024da5c919a02d6f64d,
         type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224000010500339594, guid: 95a7c6c82d340024da5c919a02d6f64d,
         type: 2}
@@ -3117,7 +3128,7 @@ RectTransform:
   - {fileID: 322502152}
   - {fileID: 159079650}
   m_Father: {fileID: 889312961}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_AnchorMin: {x: 0.3, y: 0.1}
   m_AnchorMax: {x: 0.7, y: 0.2}
   m_AnchoredPosition: {x: 0, y: 0}

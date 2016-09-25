@@ -23,7 +23,6 @@ namespace ExtrasensoryGame.Shop
         {
             _artifactsPage.Init(_resourceManager.LoadArtifactItems(), ClickHandler);
             _medCheatsPage.Init(_resourceManager.LoadMedCheatsItems(), ClickHandler);
-            Show();
         }
 
         public void Show()
