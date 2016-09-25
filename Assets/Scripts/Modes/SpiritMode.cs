@@ -85,6 +85,8 @@ public class SpiritMode : IMode
 
         this.spirit.RageChanged += RageChanged;
         this.cupboard.ItemClicked += CupboardItemClicked;
+
+        RageChanged(0f);
     }
 
     private void ApplyItem()
