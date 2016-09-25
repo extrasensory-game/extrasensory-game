@@ -88,6 +88,7 @@ public class SpiritMode : IMode
         this.cupboard.ItemClicked += CupboardItemClicked;
 
         RageChanged(0f);
+        this.rageSlider.enabled = false;
     }
 
     private void ApplyItem()

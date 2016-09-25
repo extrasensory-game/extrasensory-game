@@ -66,6 +66,7 @@ public class FoolMode : IMode
 
     public void ShowGlobusGame()
     {
+        _globeCollider.OnClick -= ShowGlobusGame;
         _astrologyPanel.SetActive(true);
     }
 }
