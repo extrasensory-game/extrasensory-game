@@ -40,6 +40,7 @@ public class ClientMode : IMode
             foreach (var sprite in this.Client.CharacterSprites)
                 InstantiateSprite(clientObject, sprite);
             _game.EyeUsing += EyeUsing;
+            _clientIsHere = true;
         }
     }
 
