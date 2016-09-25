@@ -7,23 +7,15 @@ namespace ExtrasensoryGame.Cupboard
     public class Cupboard : MonoBehaviour
     {
         [SerializeField]
-        private ResourceManager _resourceManager;
-
-        [SerializeField]
         private CupboardPanel _cupboardPanel;
 
-        private ItemData[] _items;
-
-        private void Start()
-        {
-            _items = _resourceManager.GetItems();
-        }
+        private SpiritMode SpiritMode { get { return GameObject.FindObjectOfType<ModeManager>().SpiritMode; } }
 
         public void OnMouseUpAsButton()
         {
             if(!EventSystem.current.IsPointerOverGameObject())
             {
-                _cupboardPanel.ShowPanel(_items, data =>
+                _cupboardPanel.ShowPanel(Game.Instance.Player.Items, data =>
                 {
                     Debug.Log(string.Format("{0}, {1}", data.Name, data.Id));
                 });

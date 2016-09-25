@@ -5,10 +5,12 @@ public class FoolMode : IMode
 {
 	private readonly Client client;
 	private Game _game;
+    private GameObject _astrologyPanel;
 
-    public FoolMode(Client client)
+    public FoolMode(Client client, GameObject astrologyPanel)
     {
         this.client = client;
+        this._astrologyPanel = astrologyPanel;
     }
 
     public void Init(Game game)

@@ -6,9 +6,10 @@ namespace ExtrasensoryGame
     public class UIManager : MonoBehaviour
     {
         public GameObject RestartPanel;
-        public GameObject NextClientPanel;
         public GameObject ClientPanel;
         public GameObject RageSlider;
+        public GameObject Cupboard;
+        public GameObject AstrologyPanel;
 
         private Slider rageSlider;
 
