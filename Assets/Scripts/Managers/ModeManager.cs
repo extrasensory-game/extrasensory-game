@@ -44,15 +44,16 @@ public class ModeManager : MonoBehaviour
     private IMode GetNextMode(IMode mode)
     {
         if (mode is WaitClientMode)
-            return new ClientMode();
+            return new ClientMode(ResourceManager.GetNextClient(), clientPrefab);
         if (mode is ClientMode)
         {
+            var clientMode = (ClientMode)mode;
             var rnd = new System.Random();
             if (rnd.Next(0, 2) == 0)
                 return new SpiritMode(
-                    ResourceManager.GetNextClient(),
+                    clientMode.Client,
                     ResourceManager.GetRandomSpirit(),
-                    _uiManager.ClientPanel, clientPrefab);
+                    _uiManager.ClientPanel);
             else
                 return new FoolMode(ResourceManager.GetNextClient());
         }

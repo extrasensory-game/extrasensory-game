@@ -7,22 +7,19 @@ public class SpiritMode : IMode
 {
     private GameObject _spiritObject;
     
-	private Client clientData;
-    private Spirit spirit;
+	private readonly Client clientData;
+    private readonly Spirit spirit;
 	private readonly GameObject clientPanel;
 	private Game _game;
 
 	// Хранит инфу о рассположении инфы на объекте клиента(характеристики)
-	private ClientInstance clientInstantiate;
-	private GameObject clientObject;
-	private GameObject clientPrefab;
+	private ClientInstance clientInstance;
 
-	public SpiritMode(Client client, Spirit spirit, GameObject clientPanel, GameObject clientPrefab)
+	public SpiritMode(Client client, Spirit spirit, GameObject clientPanel)
     {
         this.clientData = client;
 		this.spirit = spirit;
 		this.clientPanel = clientPanel;
-		this.clientPrefab = clientPrefab;
     }
 
 	public void InitDialog()
@@ -34,12 +31,6 @@ public class SpiritMode : IMode
     {
         Debug.Log("Init SpiritMode");
         _game = game;
-		this.clientObject = GameObject.Instantiate (clientPrefab);
-		clientInstantiate = this.clientObject.GetComponent<ClientInstance> ();
-        foreach (var sprite in clientData.CharacterSprites)
-        {
-            InstantiateSprite(sprite);
-        }
 		_game.EyeUsing += UseEye;
 		_game.Player.CurrentClient = this.clientData;
 		_game.Door.DoorOpened += InitDialog;
@@ -75,17 +66,17 @@ public class SpiritMode : IMode
 				clientData.EyeStatus = EyeStatus.WithoutGhost;
 			break;
 		case EyeStatus.WithoutGhost:
-			clientInstantiate.Characteristic1.gameObject.SetActive (true);
+			clientInstance.Characteristic1.gameObject.SetActive (true);
 			_game.Player.MagicPower -= 10;
 			clientData.EyeStatus++;
 			break;
 		case EyeStatus.Characteristic1:
-			clientInstantiate.Characteristic2.gameObject.SetActive (true);
+			clientInstance.Characteristic2.gameObject.SetActive (true);
 			_game.Player.MagicPower -= 10;
 			clientData.EyeStatus++;
 			break;
 		case EyeStatus.Characteristic2:
-			clientInstantiate.Characteristic3.gameObject.SetActive (true);
+			clientInstance.Characteristic3.gameObject.SetActive (true);
 			_game.Player.MagicPower -= 10;
 			clientData.EyeStatus++;
 			break;
@@ -94,12 +85,6 @@ public class SpiritMode : IMode
 
 		}
 	}
-
-    private void InstantiateSprite(SpriteInstance spriteInstance)
-    {
-        var go = (SpriteInstance)GameObject.Instantiate(spriteInstance, new Vector3(0, 0, spriteInstance.Layer), Quaternion.identity);
-        go.transform.parent = this.clientObject.transform;
-    }
 
     private void ShowSpirit()
     {
